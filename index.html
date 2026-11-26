@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohamed Samy Works — Civil Engineering & Interior Architecture</title>
+  <meta name="description" content="Mohamed Samy Works — Civil engineer and interior designer in Egypt crafting residential and commercial spaces across Beni Suef, Sheikh Zayed, and Cairo." />
+  <meta property="og:title" content="Mohamed Samy Works — Civil Engineering & Interior Architecture" />
+  <meta property="og:description" content="From concept to creation, we transform ideas into timeless residential and commercial spaces across Beni Suef, Sheikh Zayed, and Cairo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.mohamedsamyworks.com/" />
+  <meta property="og:image" content="https://www.mohamedsamyworks.com/assets/after8_real_1.webp" />
+  <link rel="icon" type="image/webp" href="assets/samy_logo_dark.webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#101010',
+            charcoal: '#181818',
+            surface: '#1E1E1E',
+            crimson: '#FF1E1E',
+            'crimson-dark': '#C91212',
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    :root {
+      --bg-obsidian: #101010;
+      --bg-charcoal: #181818;
+      --accent-red: #FF1E1E;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: #101010;
+      color: #ffffff;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background-color: #101010;
+      color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Fixed 3D WebGL Canvas */
+    #webgl-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Subtle architectural grid overlay */
+    .arch-grid-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(circle at 50% 45%, black 35%, transparent 90%);
+    }
+
+    /* Glassmorphic architectural panels */
+    .glass-panel {
+      background: rgba(18, 18, 18, 0.76);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card {
+      background: rgba(20, 20, 20, 0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.35s ease;
+      transform-style: preserve-3d;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(255, 30, 30, 0.6);
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.7), 0 0 32px rgba(255, 30, 30, 0.14);
+    }
+
+    /* Scroll Reveal System */
+    .reveal-el {
+      opacity: 0;
+      transform: translateY(34px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-el.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Right Architectural Scroll Rail */
+    .scroll-rail-dot {
+      transition: all 0.3s ease;
+    }
+
+    .scroll-rail-dot.active {
+      background-color: #FF1E1E;
+      transform: scale(1.45);
+      box-shadow: 0 0 12px rgba(255, 30, 30, 0.85);
+    }
+
+    /* Red accent underline matching current site footer */
+    .red-underline {
+      color: #FF1E1E;
+      text-decoration: underline;
+      text-decoration-color: #FF1E1E;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 2px;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0d0d0d;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2e2e2e;
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FF1E1E;
+    }
+
+    #project-modal {
+      transition: opacity 0.25s ease;
+    }
+    #project-modal.hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-obsidian text-white selection:bg-crimson selection:text-white">
+
+  <!-- Fixed 3D WebGL Scene -->
+  <canvas id="webgl-canvas" aria-hidden="true"></canvas>
+  <div class="arch-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Fixed Navigation Header -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-obsidian/80 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Official Mohamed Samy Works Brand Mark -->
+      <a href="#home" class="flex items-center group focus:outline-none">
+        <img src="assets/samy_logo_dark.webp" alt="Mohamed Samy Works" class="h-10 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform" />
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-xs font-medium tracking-[0.16em] uppercase text-neutral-300">
+        <a href="#home" class="nav-link hover:text-white transition-colors" data-section="home">Home</a>
+        <a href="#vision" class="nav-link hover:text-white transition-colors" data-section="vision">Vision</a>
+        <a href="#works" class="nav-link hover:text-white transition-colors" data-section="works">Works</a>
+        <a href="#campaigns" class="nav-link hover:text-white transition-colors" data-section="campaigns">Campaigns</a>
+        <a href="#about" class="nav-link hover:text-white transition-colors" data-section="about">About</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/201159308831" target="_blank" rel="noopener noreferrer"
+           class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-semibold tracking-wider uppercase hover:bg-crimson hover:text-white transition-all duration-300">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>Start Project</span>
+        </a>
+        <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu"
+                class="md:hidden p-2 rounded-lg border border-white/15 text-neutral-200 hover:text-white hover:border-crimson transition-colors">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-charcoal/95 backdrop-blur-xl border-b border-white/10 px-6 py-4 space-y-3">
+      <a href="#home" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Home</a>
+      <a href="#vision" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Vision</a>
+      <a href="#works" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Works</a>
+      <a href="#campaigns" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Campaigns</a>
+      <a href="#about" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">About</a>
+      <a href="https://wa.me/201159308831" target="_blank" rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-crimson text-white text-xs font-semibold uppercase tracking-wider">
+        <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+        <span>WhatsApp Consultation</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Right-Side Architectural Scroll Rail (Desktop) -->
+  <aside aria-label="Section scroll rail" class="hidden xl:flex fixed right-4 top-1/2 -translate-y-1/2 z-40 flex-col items-end gap-4">
+    <button type="button" data-target="#home" class="rail-btn group flex items-center gap-2.5">
+      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">01 Hero</span>
+      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35 active" data-dot="home"></span>
+    </button>
+    <button type="button" data-target="#vision" class="rail-btn group flex items-center gap-2.5">
+      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">02 Vision</span>
+      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35" data-dot="vision"></span>
+    </button>
+    <button type="button" data-target="#works" class="rail-btn group flex items-center gap-2.5">
+      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">03 Works</span>
+      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35" data-dot="works"></span>
+    </button>
+    <button type="button" data-target="#campaigns" class="rail-btn group flex items-center gap-2.5">
+      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">04 Campaigns</span>
+      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35" data-dot="campaigns"></span>
+    </button>
+    <button type="button" data-target="#about" class="rail-btn group flex items-center gap-2.5">
+      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">05 About</span>
+      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35" data-dot="about"></span>
+    </button>
+  </aside>
+  <!-- Main Foreground Content -->
+  <main class="relative z-10">
+
+    <!-- SECTION 1: HERO -->
+    <section id="home" class="min-h-screen flex items-center pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-panel text-[11px] tracking-[0.22em] uppercase text-neutral-300">
+            <span class="w-2 h-2 rounded-full bg-crimson"></span>
+            <span>Civil Engineering &amp; Interior Design</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extralight tracking-tight leading-[1.06] text-white">
+            Designing spaces that tell
+            <span class="font-semibold text-white">your</span>
+            <span class="font-semibold text-crimson">story.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-neutral-300 font-light max-w-xl leading-relaxed">
+            From concept to creation, we transform ideas into timeless residential and commercial spaces across <span class="text-white font-normal">Beni Suef, Sheikh Zayed, and Cairo</span>.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#works"
+               class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-black text-xs font-bold tracking-[0.18em] uppercase hover:bg-crimson hover:text-white transition-all duration-300 shadow-lg">
+              <span>Explore Works</span>
+              <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#campaigns"
+               class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full glass-panel text-white text-xs font-semibold tracking-[0.18em] uppercase hover:border-crimson/70 transition-all duration-300">
+              <i data-lucide="play" class="w-3.5 h-3.5 text-crimson"></i>
+              <span>Watch Campaigns</span>
+            </a>
+          </div>
+
+          <!-- Architectural Key Metrics Bar -->
+          <div class="grid grid-cols-3 gap-4 pt-6 max-w-lg border-t border-white/10">
+            <div>
+              <div class="text-2xl sm:text-3xl font-light text-white">156</div>
+              <div class="text-[11px] uppercase tracking-[0.16em] text-neutral-400 mt-0.5">Real Project Photos</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-light text-white">09</div>
+              <div class="text-[11px] uppercase tracking-[0.16em] text-neutral-400 mt-0.5">Featured Works</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-light text-white">03</div>
+              <div class="text-[11px] uppercase tracking-[0.16em] text-neutral-400 mt-0.5">Egyptian Cities</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Frame (Real After 8 HDR Photography) -->
+        <div class="lg:col-span-5">
+          <div class="glass-card rounded-2xl overflow-hidden p-2.5 shadow-2xl">
+            <div class="relative rounded-xl overflow-hidden aspect-[16/10] lg:aspect-[4/3]">
+              <img src="assets/after8_real_1.webp"
+                   alt="After 8 Cafe — Real Executed Project by Mohamed Samy Works"
+                   fetchpriority="high" decoding="async"
+                   class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+              <div class="absolute top-3 left-3">
+                <span class="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] px-2.5 py-1 rounded-full bg-black/75 border border-white/15 text-white">
+                  <span class="w-1.5 h-1.5 rounded-full bg-crimson"></span>
+                  Executed Project · After 8 Cafe
+                </span>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                <div>
+                  <div class="text-[10px] uppercase tracking-[0.25em] text-crimson font-semibold">Featured Commercial Space</div>
+                  <div class="text-sm sm:text-base font-medium text-white mt-0.5">After 8 Cafe · Beni Suef</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: BRAND PHILOSOPHY / VISION -->
+    <section id="vision" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto">
+        <div class="glass-panel rounded-3xl p-8 sm:p-14 reveal-el relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-crimson"></div>
+          <div class="text-xs font-semibold tracking-[0.28em] uppercase text-neutral-400 mb-6">
+            02 / Design Philosophy
+          </div>
+          <blockquote class="text-2xl sm:text-4xl font-light leading-snug text-crimson mb-8">
+            “From concept to creation, we transform ideas into timeless spaces. Every detail tells a story — your story.”
+          </blockquote>
+          <p class="text-base sm:text-lg text-neutral-200 font-light leading-relaxed max-w-3xl">
+            Mohamed Samy’s creativity lies in his ability to merge engineering precision with artistic vision — turning every space into a masterpiece of balance and emotion. His designs go beyond aesthetics; they reflect lifestyle, personality, and purpose. Each project becomes a unique story, crafted with passion, structure, and imagination.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-8 border-t border-white/10">
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2 text-white font-medium text-sm">
+                <i data-lucide="compass" class="w-4 h-4 text-crimson"></i>
+                <span>Civil Engineering</span>
+              </div>
+              <p class="text-xs text-neutral-400 leading-relaxed">Built on a solid civil engineering foundation and hands-on site execution.</p>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2 text-white font-medium text-sm">
+                <i data-lucide="layers" class="w-4 h-4 text-crimson"></i>
+                <span>Interior Design</span>
+              </div>
+              <p class="text-xs text-neutral-400 leading-relaxed">Balancing function and artistry to reflect each client’s vision and lifestyle.</p>
+            </div>
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2 text-white font-medium text-sm">
+                <i data-lucide="sparkles" class="w-4 h-4 text-crimson"></i>
+                <span>Residential &amp; Commercial</span>
+              </div>
+              <p class="text-xs text-neutral-400 leading-relaxed">Executed projects across Beni Suef, Sheikh Zayed, and Cairo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WORKS PORTFOLIO (ALL 9 REAL PROJECTS FROM MOHAMEDSAMYWORKS.COM) -->
+    <section id="works" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal-el">
+          <div>
+            <div class="text-xs font-semibold tracking-[0.28em] uppercase text-crimson mb-3">
+              03 / From Concept To Completion
+            </div>
+            <h2 class="text-3xl sm:text-5xl font-extralight tracking-tight text-white">
+              Where Ideas Become <span class="font-semibold">Spaces</span>
+            </h2>
+          </div>
+
+          <!-- Interactive Category & City Filters -->
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-crimson text-white transition-all" data-filter="all">
+              All (9)
+            </button>
+            <button type="button" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider glass-panel text-neutral-300 hover:text-white transition-all" data-filter="Commercial">
+              Commercial (2)
+            </button>
+            <button type="button" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider glass-panel text-neutral-300 hover:text-white transition-all" data-filter="Residential">
+              Residential (7)
+            </button>
+            <select id="city-filter" aria-label="Filter projects by city"
+                    class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface border border-white/15 text-neutral-200 focus:outline-none focus:border-crimson cursor-pointer">
+              <option value="all">All Cities</option>
+              <option value="Sheikh Zayed">Sheikh Zayed</option>
+              <option value="Beni Suef">Beni Suef</option>
+              <option value="Cairo">Cairo</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CAMPAIGNS -->
+    <section id="campaigns" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-3xl mb-14 reveal-el">
+          <div class="text-xs font-semibold tracking-[0.28em] uppercase text-crimson mb-3">
+            04 / Visual Storytelling
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extralight tracking-tight text-white mb-4">
+            Featured <span class="font-semibold">Campaigns</span>
+          </h2>
+          <p class="text-lg text-crimson font-light mb-3">
+            Where creativity meets marketing — turning spaces into viral stories.
+          </p>
+          <p class="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
+            Every design tells a story — and our campaigns bring these stories to life. From concept to execution, each project is showcased through powerful visuals and cinematic storytelling that reflect the essence of Mohamed Samy’s creative vision. Explore our latest featured campaigns and witness how design transforms into experience.
+          </p>
+          <div class="mt-6">
+            <a href="https://www.tiktok.com/@mohamedsamyworks" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full glass-panel text-white text-xs font-semibold tracking-[0.16em] uppercase hover:border-crimson hover:bg-crimson transition-all duration-300">
+              <i data-lucide="play" class="w-3.5 h-3.5 text-crimson"></i>
+              <span>Watch Video Reels on TikTok</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6 Grounded Campaigns Grid -->
+        <div id="campaigns-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: ABOUT & PRESS -->
+    <section id="about" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- About Bio (Verbatim from mohamedsamyworks.com/about) -->
+        <div class="lg:col-span-7 glass-panel rounded-3xl p-8 sm:p-12 reveal-el">
+          <div class="text-xs font-semibold tracking-[0.28em] uppercase text-crimson mb-3">
+            05 / The Architect
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extralight tracking-tight text-white mb-6">
+            About <span class="font-semibold">Mohamed Samy</span>
+          </h2>
+          <div class="space-y-4 text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
+            <p>
+              <strong class="text-white font-medium">Mohamed Samy</strong> is a civil engineer and interior designer based in Egypt, blending structural precision with artistic vision to create spaces that inspire both comfort and sophistication.
+            </p>
+            <p>
+              With a solid foundation in civil engineering and years of hands-on experience, he has designed and executed a diverse range of residential and commercial projects across Egypt — including <span class="text-white">Beni Suef, Sheikh Zayed, and Cairo</span>.
+            </p>
+            <p>
+              His portfolio features standout works such as <span class="text-white">BUNO Café, Zohour El Maadi, El Nile Corniche – Beni Suef, and Pyramids Heights Compound – Sheikh Zayed</span>, reflecting a consistent commitment to detail, elegance, and timeless design.
+            </p>
+            <p>
+              Every project is crafted with a balance between function and artistry — turning ordinary spaces into refined architectural statements that speak to the client’s vision and lifestyle.
+            </p>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#works" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black text-xs font-bold uppercase tracking-widest hover:bg-crimson hover:text-white transition-all">
+              <span>Explore Works</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+            <a href="https://wa.me/201159308831" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white text-xs font-semibold uppercase tracking-widest hover:border-crimson hover:text-crimson transition-all">
+              <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Real Site Team Photo + Press & Coverage + Regional Footprint -->
+        <div class="lg:col-span-5 space-y-6 reveal-el">
+          <div class="glass-card rounded-3xl overflow-hidden p-2">
+            <div class="relative rounded-2xl overflow-hidden aspect-[16/10]">
+              <img src="assets/samy_home_hero.webp" alt="Mohamed Samy Works — On-Site Engineering & Interior Design" loading="lazy" decoding="async" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-4 right-4">
+                <div class="text-[10px] uppercase tracking-[0.22em] text-crimson font-semibold">On-Site Execution</div>
+                <div class="text-sm font-medium text-white">Mohamed Samy Works Team</div>
+              </div>
+            </div>
+          </div>
+          <div class="glass-panel rounded-3xl p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <div class="text-[11px] font-semibold tracking-[0.25em] uppercase text-crimson">Press & Media</div>
+                <h3 class="text-xl font-medium text-white mt-1">Featured Articles</h3>
+              </div>
+              <i data-lucide="newspaper" class="w-5 h-5 text-neutral-400"></i>
+            </div>
+            <div class="space-y-4">
+              <a href="https://www.algomhoriaalyoum.com/2024/11/blog-post_28.html" target="_blank" rel="noopener noreferrer"
+                 class="block p-4 rounded-xl bg-white/[0.03] border border-white/10 hover:border-crimson/60 hover:bg-white/[0.06] transition-all group">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-semibold uppercase tracking-wider text-crimson">Al Gomhoria Al Youm</span>
+                  <i data-lucide="external-link" class="w-4 h-4 text-neutral-400 group-hover:text-crimson transition-colors"></i>
+                </div>
+                <div class="text-sm text-white font-medium mt-1.5">Featured Press Article</div>
+                <div class="text-xs text-neutral-400 mt-1">Published November 2024 · algomhoriaalyoum.com</div>
+              </a>
+
+
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-3xl p-8">
+            <div class="text-[11px] font-semibold tracking-[0.25em] uppercase text-crimson mb-4">Active Regions</div>
+            <div class="grid grid-cols-3 gap-3 text-center">
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                <div class="text-sm font-semibold text-white">Sheikh Zayed</div>
+                <div class="text-[10px] text-neutral-400 mt-0.5 uppercase tracking-wider">Residential</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                <div class="text-sm font-semibold text-white">Beni Suef</div>
+                <div class="text-[10px] text-neutral-400 mt-0.5 uppercase tracking-wider">Res. & Comm.</div>
+              </div>
+              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                <div class="text-sm font-semibold text-white">Cairo</div>
+                <div class="text-[10px] text-neutral-400 mt-0.5 uppercase tracking-wider">El Maadi</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-black/80 backdrop-blur-xl py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto text-center space-y-8">
+        <!-- Official Mohamed Samy Works Logo -->
+        <div class="inline-flex items-center justify-center">
+          <img src="assets/samy_logo_dark.webp" alt="Mohamed Samy Works Official Logo" class="h-16 sm:h-20 w-auto object-contain" />
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+          Bring Your <span class="red-underline">Vision</span> to <span class="red-underline">Reality</span>
+        </h2>
+
+        <!-- Official Social Media Row (Matching mohamedsamyworks.com order: Facebook, Instagram, TikTok, WhatsApp) -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-2">
+          <a href="https://www.facebook.com/mohamedsamyworks/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+             class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full glass-panel text-white text-xs font-semibold tracking-[0.16em] uppercase hover:border-crimson hover:bg-crimson hover:text-white transition-all duration-300">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.52 1.49-3.91 3.78-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.91h-2.34V22c4.78-.76 8.43-4.92 8.43-9.94z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.instagram.com/mohamedsamyworks/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+             class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full glass-panel text-white text-xs font-semibold tracking-[0.16em] uppercase hover:border-crimson hover:bg-crimson hover:text-white transition-all duration-300">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.22.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.05.41 2.22.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.22a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.05.36-2.22.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.22-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.05-.41-2.22C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.22.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.05-.36 2.22-.41C8.42 2.17 8.8 2.16 12 2.16zm0-2.16C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.86 5.86 0 0 0-2.12 1.38A5.86 5.86 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.12a5.86 5.86 0 0 0 2.12 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.86 5.86 0 0 0 2.12-1.38 5.86 5.86 0 0 0 1.38-2.12c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.38-2.12A5.86 5.86 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.tiktok.com/@mohamedsamyworks" target="_blank" rel="noopener noreferrer" aria-label="TikTok"
+             class="inline-flex items-center gap-2.5 px-5 py-3 rounded-full glass-panel text-white text-xs font-semibold tracking-[0.16em] uppercase hover:border-crimson hover:bg-crimson hover:text-white transition-all duration-300">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+            <span>TikTok</span>
+          </a>
+          <a href="https://wa.me/201159308831" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+             class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-crimson text-white text-xs font-bold tracking-[0.16em] uppercase hover:bg-white hover:text-black transition-all duration-300 shadow-lg">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+
+        <div class="pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+          <div>© 2026 Mohamed Samy Works — All Rights Reserved</div>
+          <div class="tracking-wider uppercase">
+            Powered By <a href="https://begamal.pages.dev/" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:text-crimson underline decoration-white/30 hover:decoration-crimson underline-offset-4 transition-colors">Belal Gamal</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- UNIFIED FULL-VIEWPORT ARCHITECTURAL PHOTO GALLERY (True Zoom & Pan — Zero Nested Modals) -->
+  <div id="project-modal" class="hidden fixed inset-0 z-50 bg-[#080808] text-white flex flex-col select-none" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- Top Architectural Control Bar -->
+    <div class="shrink-0 h-14 sm:h-16 px-3 sm:px-6 bg-black/90 border-b border-white/10 flex items-center justify-between gap-3 z-30">
+      <div class="min-w-0 flex items-center gap-2.5">
+        <span id="modal-category" class="shrink-0 px-2.5 py-0.5 rounded-full bg-crimson/20 text-crimson text-[10px] font-bold uppercase tracking-wider border border-crimson/30"></span>
+        <h3 id="modal-title" class="text-sm sm:text-lg font-semibold text-white truncate"></h3>
+        <span id="modal-location" class="hidden md:inline-block text-xs text-neutral-400 truncate"></span>
+      </div>
+
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <button id="toggle-modal-info-btn" type="button"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold uppercase tracking-wider text-white hover:bg-white/20 transition-colors">
+          <i data-lucide="info" class="w-3.5 h-3.5 text-crimson"></i>
+          <span class="hidden sm:inline">Details</span>
+        </button>
+        <button id="toggle-modal-grid-btn" type="button"
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold uppercase tracking-wider text-white hover:bg-crimson hover:border-crimson transition-colors">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5"></i>
+          <span id="modal-grid-label">All Photos</span>
+        </button>
+        <a id="modal-wa-link" href="https://wa.me/201159308831" target="_blank" rel="noopener noreferrer"
+           class="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-crimson text-white text-[11px] font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>WhatsApp</span>
+        </a>
+        <button id="close-modal-btn" type="button" aria-label="Close gallery"
+                class="w-9 h-9 rounded-full bg-white/10 border border-white/15 flex items-center justify-center text-white hover:bg-crimson hover:border-crimson transition-colors">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Collapsible Project Details Drawer (Overlies cleanly without shrinking the gallery when closed) -->
+    <div id="modal-info-drawer" class="hidden shrink-0 bg-[#121212] border-b border-white/10 px-4 sm:px-6 py-4 z-20">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="space-y-2.5 flex-1">
+          <div class="flex flex-wrap items-center gap-2" role="tablist">
+            <button type="button" class="modal-tab-btn px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-crimson text-white transition-all" data-tab="overview">Overview</button>
+            <button type="button" class="modal-tab-btn px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-white/5 text-neutral-300 hover:text-white transition-all" data-tab="concept">Design Concept</button>
+            <button type="button" class="modal-tab-btn px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-white/5 text-neutral-300 hover:text-white transition-all" data-tab="challenge">Challenge &amp; Goal</button>
+          </div>
+          <p id="modal-tab-content" class="text-xs sm:text-sm text-neutral-200 font-light leading-relaxed"></p>
+        </div>
+        <a id="modal-wa-link-drawer" href="https://wa.me/201159308831" target="_blank" rel="noopener noreferrer"
+           class="sm:hidden inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-crimson text-white text-xs font-bold uppercase tracking-wider">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Inquire via WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- MAIN FULL-VIEWPORT INTERACTIVE ZOOM & PAN STAGE -->
+    <div id="modal-visual" class="relative flex-1 w-full overflow-hidden bg-[#060606] flex items-center justify-center touch-none">
+      <!-- Ambient Blurred Backdrop -->
+      <img id="stage-ambient" src="" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover scale-110 blur-3xl opacity-25 pointer-events-none" />
+
+      <!-- Interactive Zoomable / Pannable Image Container -->
+      <div id="zoom-viewport" class="relative z-10 w-full h-full flex items-center justify-center overflow-hidden cursor-zoom-in">
+        <img id="stage-main-img" src="" alt="" draggable="false" decoding="async"
+             class="max-w-full max-h-full object-contain will-change-transform transition-transform duration-150 ease-out" />
+      </div>
+
+      <!-- Prev / Next Arrows -->
+      <button type="button" id="modal-prev-btn" aria-label="Previous photo"
+              class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/75 border border-white/20 flex items-center justify-center text-white hover:bg-crimson hover:border-crimson transition-colors shadow-xl">
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+      </button>
+      <button type="button" id="modal-next-btn" aria-label="Next photo"
+              class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black/75 border border-white/20 flex items-center justify-center text-white hover:bg-crimson hover:border-crimson transition-colors shadow-xl">
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+      </button>
+
+      <!-- Bottom-Left Live Zoom Controls Bar (100% - 350% + Reset) -->
+      <div class="absolute bottom-3 left-3 sm:bottom-4 sm:left-6 z-20 flex items-center gap-1 px-2 py-1.5 rounded-full bg-black/80 border border-white/20 backdrop-blur-md shadow-xl">
+        <button type="button" id="zoom-out-btn" aria-label="Zoom out"
+                class="w-7 h-7 rounded-full flex items-center justify-center text-neutral-200 hover:bg-white/15 hover:text-white transition-colors">
+          <i data-lucide="zoom-out" class="w-4 h-4"></i>
+        </button>
+        <span id="zoom-level-label" class="text-[11px] font-mono text-white w-11 text-center">100%</span>
+        <button type="button" id="zoom-in-btn" aria-label="Zoom in"
+                class="w-7 h-7 rounded-full flex items-center justify-center text-neutral-200 hover:bg-white/15 hover:text-white transition-colors">
+          <i data-lucide="zoom-in" class="w-4 h-4"></i>
+        </button>
+        <button type="button" id="zoom-reset-btn" aria-label="Reset zoom"
+                class="hidden ml-1 px-2 py-0.5 rounded-full bg-crimson/25 border border-crimson/50 text-[10px] font-semibold uppercase tracking-wider text-white hover:bg-crimson transition-colors">
+          Reset
+        </button>
+      </div>
+
+      <!-- Bottom-Right Counter + Hint -->
+      <div class="absolute bottom-3 right-3 sm:bottom-4 sm:right-6 z-20 flex items-center gap-2">
+        <span class="hidden md:inline-block px-3 py-1 rounded-full bg-black/70 border border-white/10 text-[10px] text-neutral-300 tracking-wide">
+          Click or Scroll to Zoom · Drag to Pan
+        </span>
+        <div id="stage-counter" class="px-3.5 py-1.5 rounded-full bg-black/80 border border-white/20 text-xs font-mono text-white"></div>
+      </div>
+    </div>
+
+    <!-- Full-Screen Contact-Sheet Photo Grid (Toggled via All Photos) -->
+    <div id="modal-grid-view" class="hidden flex-1 overflow-y-auto p-4 sm:p-6 bg-[#0a0a0a]">
+      <div id="modal-grid-items" class="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"></div>
+    </div>
+
+    <!-- Bottom Crisp Thumbnail Filmstrip -->
+    <div id="modal-gallery-strip" class="shrink-0 px-3 sm:px-6 py-2.5 flex items-center gap-2 overflow-x-auto bg-black/95 border-t border-white/10 z-20"></div>
+  </div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      // ==========================================
+      // 1. REAL PRODUCTION DATA FROM MOHAMEDSAMYWORKS.COM
+      // ==========================================
+      const PROJECTS = [
+        {
+          id: 'after-8-cafe',
+          num: '01',
+          title: 'After 8 Cafe',
+          category: 'Commercial',
+          city: 'Beni Suef',
+          style: 'Contemporary Architectural',
+          realPhotos: true,
+          shortDesc: 'A contemporary café shaped by bold burgundy forms, fluid curves, and a seamless connection between indoor and outdoor spaces.',
+          overview: 'After 8 Cafe is a contemporary café in Beni Suef shaped by bold burgundy forms, fluid curves, and a seamless connection between indoor and outdoor spaces.',
+          concept: 'The design combines bold burgundy architectural forms and curved spatial transitions with open indoor-outdoor flow and balanced daylighting.',
+          challenge: 'Creating a distinctive contemporary café identity with smooth indoor-outdoor continuity and a welcoming hospitality atmosphere.',
+          image: 'assets/after8_real_1.webp',
+          gallery: [
+            { src: 'assets/after8_real_1.webp', label: 'View 01' },
+            { src: 'assets/proj_after8_1.webp', label: 'View 02' },
+            { src: 'assets/proj_after8_2.webp', label: 'View 03' },
+            { src: 'assets/proj_after8_3.webp', label: 'View 04' },
+            { src: 'assets/p_after8_04.webp', label: 'View 05' },
+            { src: 'assets/p_after8_05.webp', label: 'View 06' },
+            { src: 'assets/p_after8_06.webp', label: 'View 07' },
+            { src: 'assets/p_after8_07.webp', label: 'View 08' },
+            { src: 'assets/p_after8_08.webp', label: 'View 09' },
+            { src: 'assets/p_after8_09.webp', label: 'View 10' },
+            { src: 'assets/p_after8_10.webp', label: 'View 11' },
+            { src: 'assets/p_after8_11.webp', label: 'View 12' },
+            { src: 'assets/p_after8_12.webp', label: 'View 13' },
+            { src: 'assets/p_after8_13.webp', label: 'View 14' },
+            { src: 'assets/p_after8_14.webp', label: 'View 15' },
+            { src: 'assets/p_after8_15.webp', label: 'View 16' },
+            { src: 'assets/p_after8_16.webp', label: 'View 17' },
+            { src: 'assets/p_after8_17.webp', label: 'View 18' },
+            { src: 'assets/p_after8_18.webp', label: 'View 19' },
+            { src: 'assets/p_after8_19.webp', label: 'View 20' },
+            { src: 'assets/after8_real_2.webp', label: 'View 21' },
+            { src: 'assets/after8_real_3.webp', label: 'View 22' }
+          ],
+          accent: '#8A1538'
+        },
+        {
+          id: 'pyramids-heights',
+          num: '02',
+          title: 'Pyramids Heights Compound',
+          category: 'Residential',
+          city: 'Sheikh Zayed',
+          style: 'Modern Luxury',
+          realPhotos: true,
+          shortDesc: 'A modern space redefined — where elegance, light, and balance come together in timeless harmony.',
+          overview: 'A fully designed residential apartment located in Pyramids Heights Compound, Sheikh Zayed. The project showcases a seamless blend of timeless elegance and modern sophistication, featuring refined materials, balanced lighting, and warm color tones.',
+          concept: 'Centered on refined modern elegance, combining warm neutral tones, natural wood textures, and layered lighting for a calm residential atmosphere.',
+          challenge: 'The main challenge was to maintain a cohesive architectural spirit across the entire apartment while introducing modern touches that enhance usability and flow. The goal was to create a luxurious yet practical home — one that feels both spacious and inviting.',
+          image: 'assets/p_pyramids_12.webp',
+          gallery: [
+            { src: 'assets/p_pyramids_12.webp', label: 'View 01' },
+            { src: 'assets/proj_pyramids_1.webp', label: 'View 02' },
+            { src: 'assets/proj_pyramids_2.webp', label: 'View 03' },
+            { src: 'assets/proj_pyramids_3.webp', label: 'View 04' },
+            { src: 'assets/proj_pyramids_4.webp', label: 'View 05' },
+            { src: 'assets/p_pyramids_05.webp', label: 'View 06' },
+            { src: 'assets/p_pyramids_06.webp', label: 'View 07' },
+            { src: 'assets/p_pyramids_07.webp', label: 'View 08' },
+            { src: 'assets/p_pyramids_08.webp', label: 'View 09' },
+            { src: 'assets/p_pyramids_09.webp', label: 'View 10' },
+            { src: 'assets/p_pyramids_10.webp', label: 'View 11' },
+            { src: 'assets/p_pyramids_11.webp', label: 'View 12' },
+            { src: 'assets/p_pyramids_13.webp', label: 'View 13' },
+            { src: 'assets/p_pyramids_14.webp', label: 'View 14' },
+            { src: 'assets/p_pyramids_15.webp', label: 'View 15' },
+            { src: 'assets/p_pyramids_16.webp', label: 'View 16' },
+            { src: 'assets/p_pyramids_17.webp', label: 'View 17' },
+            { src: 'assets/p_pyramids_19.webp', label: 'View 18' },
+            { src: 'assets/p_pyramids_20.webp', label: 'View 19' },
+            { src: 'assets/p_pyramids_21.webp', label: 'View 20' },
+            { src: 'assets/p_pyramids_22.webp', label: 'View 21' },
+            { src: 'assets/p_pyramids_23.webp', label: 'View 22' },
+            { src: 'assets/p_pyramids_24.webp', label: 'View 23' }
+          ],
+          accent: '#C9A97E'
+        },
+        {
+          id: 'buno-cafe',
+          num: '03',
+          title: 'BUNO Cafe',
+          category: 'Commercial',
+          city: 'Beni Suef',
+          style: 'Modern Industrial',
+          realPhotos: true,
+          shortDesc: 'Where industrial design meets warmth — a café crafted for connection, comfort, and creative energy.',
+          overview: 'BUNO Café represents a modern industrial design approach — blending natural textures with a bold urban aesthetic. The interior features a combination of raw concrete surfaces, warm wooden finishes, and matte black metal elements that create a distinctive, cozy atmosphere.',
+          concept: 'The concept focused on reflecting the café’s identity — contemporary, warm, and youthful. Soft ambient lighting and carefully positioned spotlights highlight the bar and seating zones, enhancing texture and material contrasts from custom furniture to wall finishes.',
+          challenge: 'The main challenge was to achieve a balanced industrial tone that feels cozy rather than cold. Through thoughtful lighting design, material harmony, and spatial zoning, the project delivers an interior that balances energy and relaxation.',
+          image: 'assets/proj_buno_2.webp',
+          gallery: [
+            { src: 'assets/proj_buno_2.webp', label: 'View 01' },
+            { src: 'assets/proj_buno_1.webp', label: 'View 02' },
+            { src: 'assets/proj_buno_3.webp', label: 'View 03' },
+            { src: 'assets/proj_buno_4.webp', label: 'View 04' },
+            { src: 'assets/proj_buno_5.webp', label: 'View 05' },
+            { src: 'assets/p_buno_06.webp', label: 'View 06' },
+            { src: 'assets/p_buno_07.webp', label: 'View 07' },
+            { src: 'assets/p_buno_08.webp', label: 'View 08' },
+            { src: 'assets/p_buno_09.webp', label: 'View 09' },
+            { src: 'assets/p_buno_10.webp', label: 'View 10' },
+            { src: 'assets/p_buno_12.webp', label: 'View 11' },
+            { src: 'assets/p_buno_13.webp', label: 'View 12' },
+            { src: 'assets/p_buno_14.webp', label: 'View 13' },
+            { src: 'assets/p_buno_15.webp', label: 'View 14' },
+            { src: 'assets/p_buno_16.webp', label: 'View 15' }
+          ],
+          accent: '#B57B4C'
+        },
+        {
+          id: 'zahraa-el-maadi',
+          num: '04',
+          title: 'Zahraa El-Maadi – Al Yasmeen',
+          category: 'Residential',
+          city: 'Cairo',
+          style: 'Classical Modern',
+          realPhotos: true,
+          shortDesc: 'A refined classical apartment where timeless design meets modern comfort — crafted with warmth, balance, and elegance in every detail.',
+          overview: 'A fully designed residential apartment located in Al Yasmeen Compound, El Maadi. The project showcases a seamless blend of classic charm and modern sophistication, featuring elegant materials, balanced lighting, and warm color tones across living areas and bedrooms.',
+          concept: 'The interior concept was centered around achieving an elegant atmosphere with a strong sense of comfort. The use of natural wood, soft lighting, and custom furniture pieces created a rich visual identity that reflects Mohamed Samy’s philosophy — simplicity, warmth, and artistic precision.',
+          challenge: 'The main challenge was to maintain a cohesive classical spirit across the entire apartment while introducing modern touches that enhance usability and flow — creating a luxurious yet practical home preserving classic design in a contemporary lifestyle.',
+          image: 'assets/proj_maadi_4.webp',
+          gallery: [
+            { src: 'assets/proj_maadi_4.webp', label: 'View 01' },
+            { src: 'assets/proj_maadi_1.webp', label: 'View 02' },
+            { src: 'assets/proj_maadi_2.webp', label: 'View 03' },
+            { src: 'assets/proj_maadi_3.webp', label: 'View 04' },
+            { src: 'assets/proj_maadi_5.webp', label: 'View 05' },
+            { src: 'assets/p_maadi_06.webp', label: 'View 06' },
+            { src: 'assets/p_maadi_07.webp', label: 'View 07' },
+            { src: 'assets/p_maadi_09.webp', label: 'View 08' },
+            { src: 'assets/p_maadi_10.webp', label: 'View 09' },
+            { src: 'assets/p_maadi_11.webp', label: 'View 10' },
+            { src: 'assets/p_maadi_12.webp', label: 'View 11' },
+            { src: 'assets/p_maadi_13.webp', label: 'View 12' },
+            { src: 'assets/p_maadi_14.webp', label: 'View 13' },
+            { src: 'assets/p_maadi_15.webp', label: 'View 14' }
+          ],
+          accent: '#B08968'
+        },
+        {
+          id: 'east-nile-first',
+          num: '05',
+          title: 'East Nile – First District',
+          category: 'Residential',
+          city: 'Beni Suef',
+          style: 'Modern-Classic',
+          realPhotos: true,
+          shortDesc: 'A modern-classic space defined by clean geometry, warm lighting, and sophisticated finishes that reflect understated luxury.',
+          overview: 'A modern-classic residential apartment located in East Nile, Beni Suef. The design embraces a balanced blend of simplicity and sophistication, combining warm tones, clean geometry, and subtle decorative panels to create a refined living atmosphere.',
+          concept: 'The concept focuses on integrating contemporary functionality with classic-inspired textures. Wooden wall claddings, ambient lighting, and sculpted gypsum elements form a consistent rhythm across the space — merging modern practicality with elegant visual appeal.',
+          challenge: 'The challenge was to transform a limited residential area into a visually expansive and cohesive interior — maintaining modern clarity without losing the warmth of classic character through harmony between light, texture, and proportion.',
+          image: 'assets/proj_eastnile_3.webp',
+          gallery: [
+            { src: 'assets/proj_eastnile_3.webp', label: 'View 01' },
+            { src: 'assets/proj_eastnile_1.webp', label: 'View 02' },
+            { src: 'assets/proj_eastnile_2.webp', label: 'View 03' },
+            { src: 'assets/proj_eastnile_4.webp', label: 'View 04' },
+            { src: 'assets/proj_eastnile_5.webp', label: 'View 05' },
+            { src: 'assets/p_eastnile_06.webp', label: 'View 06' },
+            { src: 'assets/p_eastnile_07.webp', label: 'View 07' },
+            { src: 'assets/p_eastnile_08.webp', label: 'View 08' },
+            { src: 'assets/p_eastnile_09.webp', label: 'View 09' },
+            { src: 'assets/p_eastnile_10.webp', label: 'View 10' },
+            { src: 'assets/p_eastnile_11.webp', label: 'View 11' },
+            { src: 'assets/p_eastnile_12.webp', label: 'View 12' },
+            { src: 'assets/p_eastnile_13.webp', label: 'View 13' },
+            { src: 'assets/p_eastnile_14.webp', label: 'View 14' },
+            { src: 'assets/p_eastnile_15.webp', label: 'View 15' },
+            { src: 'assets/p_eastnile_16.webp', label: 'View 16' },
+            { src: 'assets/p_eastnile_17.webp', label: 'View 17' },
+            { src: 'assets/p_eastnile_18.webp', label: 'View 18' },
+            { src: 'assets/p_eastnile_19.webp', label: 'View 19' },
+            { src: 'assets/p_eastnile_20.webp', label: 'View 20' },
+            { src: 'assets/p_eastnile_21.webp', label: 'View 21' },
+            { src: 'assets/p_eastnile_22.webp', label: 'View 22' },
+            { src: 'assets/p_eastnile_23.webp', label: 'View 23' },
+            { src: 'assets/p_eastnile_24.webp', label: 'View 24' },
+            { src: 'assets/p_eastnile_25.webp', label: 'View 25' },
+            { src: 'assets/p_eastnile_28.webp', label: 'View 26' },
+            { src: 'assets/p_eastnile_29.webp', label: 'View 27' }
+          ],
+          accent: '#9C897B'
+        },
+        {
+          id: 'makkah-compound',
+          num: '06',
+          title: 'Makkah Compound – East Nile',
+          category: 'Residential',
+          city: 'Beni Suef',
+          style: 'Open Modern Luxury',
+          realPhotos: true,
+          shortDesc: 'Where modern elegance meets subtle warmth — a living space designed to balance sophistication with a calm, homely atmosphere.',
+          overview: 'This residential project in Makkah Compound – East Nile represents a refined approach to modern luxury. The space was designed to feel open and bright, using warm wooden textures, light tones, and gold accents from marble steps to ambient ceiling lighting.',
+          concept: 'The concept focused on creating a fluid visual flow between areas while maintaining an elegant contrast of materials. Soft neutral palettes blend with deep green and gold highlights, indirect lighting emphasizes textures, and curved furniture lines add movement and softness.',
+          challenge: 'The main challenge was to merge modern minimalism with luxurious detailing in a relatively compact layout — achieving a space that feels both grand and livable for everyday comfort and gatherings.',
+          image: 'assets/p_makkah_12.webp',
+          gallery: [
+            { src: 'assets/p_makkah_12.webp', label: 'View 01' },
+            { src: 'assets/proj_makkah_1.webp', label: 'View 02' },
+            { src: 'assets/proj_makkah_2.webp', label: 'View 03' },
+            { src: 'assets/proj_makkah_3.webp', label: 'View 04' },
+            { src: 'assets/proj_makkah_4.webp', label: 'View 05' },
+            { src: 'assets/proj_makkah_5.webp', label: 'View 06' },
+            { src: 'assets/p_makkah_06.webp', label: 'View 07' },
+            { src: 'assets/p_makkah_07.webp', label: 'View 08' },
+            { src: 'assets/p_makkah_08.webp', label: 'View 09' },
+            { src: 'assets/p_makkah_09.webp', label: 'View 10' },
+            { src: 'assets/p_makkah_10.webp', label: 'View 11' },
+            { src: 'assets/p_makkah_11.webp', label: 'View 12' },
+            { src: 'assets/p_makkah_13.webp', label: 'View 13' }
+          ],
+          accent: '#2D5A4C'
+        },
+        {
+          id: 'al-rawda-district',
+          num: '07',
+          title: 'Al Rawda District – Beni Suef',
+          category: 'Residential',
+          city: 'Beni Suef',
+          style: 'Clean Modern',
+          realPhotos: true,
+          shortDesc: 'A clean modern space brought to life with balanced lighting and calm tones — reflecting simplicity, precision, and everyday elegance.',
+          overview: 'Located in the heart of Beni Suef’s Al Rawda district, this project showcases a refined approach to modern living — combining functional space planning with calm aesthetics designed to enhance light flow and create a clean, contemporary atmosphere.',
+          concept: 'This project reflects a pure modern aesthetic that focuses on balance and light. Soft tones and indirect lighting create a calm and spacious atmosphere, while clean architectural lines emphasize simplicity and elegance.',
+          challenge: 'The main challenge was to achieve a modern, minimal space that feels warm rather than cold. Through a smart lighting scheme and a refined material palette, simplicity was turned into sophistication.',
+          image: 'assets/proj_rawda_1.webp',
+          gallery: [
+            { src: 'assets/proj_rawda_1.webp', label: 'View 01' },
+            { src: 'assets/proj_rawda_2.webp', label: 'View 02' },
+            { src: 'assets/proj_rawda_3.webp', label: 'View 03' },
+            { src: 'assets/proj_rawda_4.webp', label: 'View 04' },
+            { src: 'assets/p_rawda_05.webp', label: 'View 05' },
+            { src: 'assets/p_rawda_07.webp', label: 'View 06' },
+            { src: 'assets/p_rawda_08.webp', label: 'View 07' },
+            { src: 'assets/p_rawda_09.webp', label: 'View 08' },
+            { src: 'assets/p_rawda_10.webp', label: 'View 09' },
+            { src: 'assets/p_rawda_11.webp', label: 'View 10' }
+          ],
+          accent: '#8E9AAF'
+        },
+        {
+          id: 'al-narges-zayed',
+          num: '08',
+          title: 'Al-Narges Compound',
+          category: 'Residential',
+          city: 'Sheikh Zayed',
+          style: 'Warm Minimalism',
+          realPhotos: true,
+          shortDesc: 'A residential interior design project in Al-Narges Compound, Sheikh Zayed, blending clean lines with warm modern comfort.',
+          overview: 'A residential interior design project located in Al-Narges Compound, Sheikh Zayed, crafted with balanced proportions and refined modern finishes.',
+          concept: 'Focused on clean architectural composition, balanced lighting, and warm neutral tones tailored for everyday residential living.',
+          challenge: 'Achieving a cohesive, calm residential atmosphere that balances simplicity, warmth, and practical spatial flow.',
+          image: 'assets/proj_narges_2.webp',
+          gallery: [
+            { src: 'assets/proj_narges_2.webp', label: 'View 01' },
+            { src: 'assets/proj_narges_1.webp', label: 'View 02' },
+            { src: 'assets/proj_narges_3.webp', label: 'View 03' },
+            { src: 'assets/proj_narges_4.webp', label: 'View 04' },
+            { src: 'assets/p_narges_05.webp', label: 'View 05' },
+            { src: 'assets/p_narges_06.webp', label: 'View 06' },
+            { src: 'assets/p_narges_07.webp', label: 'View 07' },
+            { src: 'assets/p_narges_08.webp', label: 'View 08' },
+            { src: 'assets/p_narges_10.webp', label: 'View 09' },
+            { src: 'assets/p_narges_11.webp', label: 'View 10' }
+          ],
+          accent: '#D4A373'
+        },
+        {
+          id: 'kornish-beni-suef',
+          num: '09',
+          title: 'Kornish Beni Suef',
+          category: 'Residential',
+          city: 'Beni Suef',
+          style: 'Refined Contemporary',
+          realPhotos: true,
+          shortDesc: 'A residential interior design project along El Nile Corniche in Beni Suef, balancing elegance, functionality, and timeless comfort.',
+          overview: 'A residential interior design project located along El Nile Corniche in Beni Suef, reflecting Mohamed Samy’s balance between function and refined artistry.',
+          concept: 'Designed around harmonious proportions, warm finishes, and balanced lighting to create a cohesive and timeless residential interior.',
+          challenge: 'Delivering a refined residential space that maintains visual harmony and everyday livability across all living zones.',
+          image: 'assets/p_kornish_09.webp',
+          gallery: [
+            { src: 'assets/p_kornish_09.webp', label: 'View 01' },
+            { src: 'assets/proj_kornish_1.webp', label: 'View 02' },
+            { src: 'assets/proj_kornish_2.webp', label: 'View 03' },
+            { src: 'assets/proj_kornish_3.webp', label: 'View 04' },
+            { src: 'assets/proj_kornish_4.webp', label: 'View 05' },
+            { src: 'assets/proj_kornish_5.webp', label: 'View 06' },
+            { src: 'assets/p_kornish_06.webp', label: 'View 07' },
+            { src: 'assets/p_kornish_07.webp', label: 'View 08' },
+            { src: 'assets/p_kornish_08.webp', label: 'View 09' },
+            { src: 'assets/p_kornish_10.webp', label: 'View 10' },
+            { src: 'assets/p_kornish_11.webp', label: 'View 11' },
+            { src: 'assets/p_kornish_12.webp', label: 'View 12' },
+            { src: 'assets/p_kornish_13.webp', label: 'View 13' },
+            { src: 'assets/p_kornish_14.webp', label: 'View 14' },
+            { src: 'assets/p_kornish_15.webp', label: 'View 15' },
+            { src: 'assets/p_kornish_16.webp', label: 'View 16' },
+            { src: 'assets/p_kornish_17.webp', label: 'View 17' },
+            { src: 'assets/p_kornish_18.webp', label: 'View 18' },
+            { src: 'assets/p_kornish_19.webp', label: 'View 19' },
+            { src: 'assets/p_kornish_20.webp', label: 'View 20' },
+            { src: 'assets/p_kornish_22.webp', label: 'View 21' },
+            { src: 'assets/p_kornish_23.webp', label: 'View 22' }
+          ],
+          accent: '#E0C9A6'
+        }
+      ];
+
+      const CAMPAIGNS = [
+        { num: '01', title: 'Pyramids Heights', tag: 'Featured Campaign', desc: 'Visual showcase for the Pyramids Heights Compound project in Sheikh Zayed.', projectId: 'pyramids-heights' },
+        { num: '02', title: 'Buno Cafe', tag: 'Featured Campaign', desc: 'Campaign showcase highlighting the BUNO Cafe commercial space in Beni Suef.', projectId: 'buno-cafe' },
+        { num: '03', title: 'About Mohamed Samy', tag: 'Brand Story', desc: 'Introduction to Mohamed Samy’s engineering and interior design vision.', sectionTarget: '#about' },
+        { num: '04', title: 'BUNO Cafe Trailer', tag: 'Campaign Trailer', desc: 'Promotional visual trailer for the BUNO Cafe project.', projectId: 'buno-cafe' },
+        { num: '05', title: 'AlRawda District', tag: 'Featured Campaign', desc: 'Visual showcase for the Al Rawda District residential project in Beni Suef.', projectId: 'al-rawda-district' },
+        { num: '06', title: 'AlRawda District 2', tag: 'Featured Campaign', desc: 'Follow-up campaign showcase from the Al Rawda District project in Beni Suef.', projectId: 'al-rawda-district' }
+      ];
+
+      // ==========================================
+      // 2. RENDER PROJECTS & CAMPAIGNS + FILTERS
+      // ==========================================
+      let activeCategory = 'all';
+      let activeCity = 'all';
+      let activeModalProject = null;
+      let activeSceneAccentHex = 0xff1e1e;
+
+      const projectsGrid = document.getElementById('projects-grid');
+      const campaignsGrid = document.getElementById('campaigns-grid');
+
+      function renderArchitecturalPlaceholder(proj) {
+        return `
+          <div class="w-full h-full relative flex flex-col justify-between p-5"
+               style="background: radial-gradient(circle at 80% 20%, ${proj.accent}38 0%, #141414 72%);">
+            <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M40 260 L40 60 L220 30 L360 80 L360 260 Z" stroke="#ffffff" stroke-width="1"/>
+              <path d="M220 30 L220 260" stroke="#FF1E1E" stroke-width="1" stroke-dasharray="4 4"/>
+              <path d="M40 160 L360 160" stroke="#ffffff" stroke-width="0.6" stroke-opacity="0.5"/>
+              <rect x="85" y="100" width="90" height="120" stroke="#ffffff" stroke-width="0.8"/>
+              <rect x="255" y="110" width="70" height="90" stroke="#FF1E1E" stroke-width="0.8"/>
+            </svg>
+            <div class="relative z-10 flex items-center justify-between">
+              <span class="text-[10px] font-mono tracking-widest uppercase px-2 py-0.5 rounded bg-black/60 border border-white/10 text-neutral-300">${proj.style}</span>
+              <span class="text-xs font-mono text-crimson font-bold">${proj.num}</span>
+            </div>
+            <div class="relative z-10">
+              <div class="text-[10px] uppercase tracking-[0.22em] text-neutral-400">Executed Project</div>
+              <div class="text-sm font-medium text-white/90 mt-0.5">${proj.city}</div>
+            </div>
+          </div>
+        `;
+      }
+
+      function renderProjects() {
+        const filtered = PROJECTS.filter(p => {
+          const catOk = activeCategory === 'all' || p.category === activeCategory;
+          const cityOk = activeCity === 'all' || p.city === activeCity;
+          return catOk && cityOk;
+        });
+
+        if (filtered.length === 0) {
+          projectsGrid.innerHTML = `
+            <div class="col-span-full glass-panel rounded-2xl p-10 text-center">
+              <p class="text-neutral-300 text-sm">No projects match this filter combination.</p>
+              <button type="button" id="reset-filters-btn" class="mt-4 px-5 py-2 rounded-full bg-crimson text-white text-xs font-semibold uppercase tracking-wider">Reset Filters</button>
+            </div>
+          `;
+          const resetBtn = document.getElementById('reset-filters-btn');
+          if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+              activeCategory = 'all';
+              activeCity = 'all';
+              document.getElementById('city-filter').value = 'all';
+              document.querySelectorAll('.filter-btn').forEach(b => {
+                const isAll = b.dataset.filter === 'all';
+                b.classList.toggle('bg-crimson', isAll);
+                b.classList.toggle('text-white', isAll);
+                b.classList.toggle('glass-panel', !isAll);
+                b.classList.toggle('text-neutral-300', !isAll);
+              });
+              renderProjects();
+            });
+          }
+          return;
+        }
+
+        projectsGrid.innerHTML = filtered.map(proj => `
+          <article class="glass-card rounded-2xl overflow-hidden flex flex-col cursor-pointer group" data-project-id="${proj.id}" data-accent="${proj.accent}">
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-charcoal">
+              ${proj.image
+                ? `<img src="${proj.image}" alt="${proj.title}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                   <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent"></div>
+                   <span class="absolute top-3 right-3 text-xs font-mono px-2.5 py-0.5 rounded bg-black/75 border border-white/15 text-crimson font-bold">${proj.num}</span>
+                   ${proj.gallery && proj.gallery.length > 1 ? `<span class="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-black/80 border border-white/15 text-white">${proj.gallery.length} Photos</span>` : ''}`
+                : renderArchitecturalPlaceholder(proj)
+              }
+              <span class="absolute bottom-3 left-3 text-[10px] font-semibold uppercase tracking-[0.2em] px-2.5 py-1 rounded-full bg-black/75 border border-white/15 text-white">
+                ${proj.category} · ${proj.city}
+              </span>
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <h3 class="text-lg font-semibold text-white group-hover:text-crimson transition-colors">${proj.title}</h3>
+                <p class="text-xs sm:text-sm text-neutral-400 font-light mt-2 leading-relaxed line-clamp-3">${proj.shortDesc}</p>
+              </div>
+              <div class="flex items-center justify-between pt-3 border-t border-white/10 text-xs">
+                <span class="text-neutral-300 font-medium group-hover:text-white transition-colors">View Project</span>
+                <span class="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-crimson group-hover:text-white transition-colors">
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+        `).join('');
+
+        if (window.lucide) window.lucide.createIcons();
+        attachCardInteractions();
+      }
+
+      function renderCampaigns() {
+        campaignsGrid.innerHTML = CAMPAIGNS.map(c => `
+          <button type="button" data-camp-proj="${c.projectId || ''}" data-camp-sec="${c.sectionTarget || ''}"
+             class="campaign-card text-left glass-card rounded-2xl p-6 flex flex-col justify-between space-y-5 group cursor-pointer">
+            <div class="flex items-center justify-between w-full">
+              <span class="text-[10px] font-semibold uppercase tracking-[0.22em] px-3 py-1 rounded-full bg-crimson/15 text-crimson border border-crimson/30">${c.tag}</span>
+              <span class="text-xs font-mono text-neutral-500">${c.num}</span>
+            </div>
+            <div>
+              <h3 class="text-xl font-medium text-white group-hover:text-crimson transition-colors">${c.title}</h3>
+              <p class="text-xs sm:text-sm text-neutral-400 font-light mt-2 leading-relaxed">${c.desc}</p>
+            </div>
+            <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-300 group-hover:text-white pt-3 border-t border-white/10 w-full">
+              <span class="w-7 h-7 rounded-full bg-crimson/20 text-crimson flex items-center justify-center group-hover:bg-crimson group-hover:text-white transition-colors">
+                <i data-lucide="${c.projectId ? 'images' : 'user'}" class="w-3.5 h-3.5"></i>
+              </span>
+              <span>${c.projectId ? 'View Project Photos' : 'Meet Mohamed Samy'}</span>
+            </div>
+          </button>
+        `).join('');
+        campaignsGrid.querySelectorAll('.campaign-card').forEach(card => {
+          card.addEventListener('click', () => {
+            if (card.dataset.campProj) openProjectModal(card.dataset.campProj);
+            else if (card.dataset.campSec) scrollToSection(card.dataset.campSec);
+          });
+        });
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      // ==========================================
+      // 3. MODAL (PROJECT DETAILS TABS + REAL GALLERY) & 3D CARD TILT
+      // ==========================================
+      const modal = document.getElementById('project-modal');
+      const modalVisual = document.getElementById('modal-visual');
+      const modalGridView = document.getElementById('modal-grid-view');
+      const modalGridItems = document.getElementById('modal-grid-items');
+      const modalInfoDrawer = document.getElementById('modal-info-drawer');
+      const toggleModalInfoBtn = document.getElementById('toggle-modal-info-btn');
+      const toggleModalGridBtn = document.getElementById('toggle-modal-grid-btn');
+      const modalGridLabel = document.getElementById('modal-grid-label');
+      const modalGalleryStrip = document.getElementById('modal-gallery-strip');
+      const modalCategory = document.getElementById('modal-category');
+      const modalLocation = document.getElementById('modal-location');
+      const modalTitle = document.getElementById('modal-title');
+      const modalTabContent = document.getElementById('modal-tab-content');
+      const modalWaLink = document.getElementById('modal-wa-link');
+      const modalWaLinkDrawer = document.getElementById('modal-wa-link-drawer');
+
+      const zoomViewport = document.getElementById('zoom-viewport');
+      const stageMainImg = document.getElementById('stage-main-img');
+      const stageAmbient = document.getElementById('stage-ambient');
+      const stageCounter = document.getElementById('stage-counter');
+      const zoomLevelLabel = document.getElementById('zoom-level-label');
+      const zoomResetBtn = document.getElementById('zoom-reset-btn');
+
+      let isModalGridOpen = false;
+      let activeGalleryIdx = 0;
+
+      // True Zoom & Pan State
+      let zoomScale = 1;
+      let panX = 0;
+      let panY = 0;
+      let isPanning = false;
+      let panMoved = false;
+      let startX = 0;
+      let startY = 0;
+      let pinchStartDist = 0;
+      let pinchStartScale = 1;
+      let touchSwipeStartX = 0;
+
+      function clampPan() {
+        if (zoomScale <= 1) {
+          panX = 0;
+          panY = 0;
+          return;
+        }
+        const rect = zoomViewport.getBoundingClientRect();
+        const maxX = (rect.width * (zoomScale - 1)) / 2;
+        const maxY = (rect.height * (zoomScale - 1)) / 2;
+        panX = Math.max(-maxX, Math.min(maxX, panX));
+        panY = Math.max(-maxY, Math.min(maxY, panY));
+      }
+
+      function applyZoomTransform(instant = false) {
+        clampPan();
+        stageMainImg.style.transition = instant ? 'none' : 'transform 160ms cubic-bezier(0.22, 1, 0.36, 1)';
+        stageMainImg.style.transform = `translate3d(${panX.toFixed(1)}px, ${panY.toFixed(1)}px, 0) scale(${zoomScale.toFixed(3)})`;
+        zoomLevelLabel.textContent = `${Math.round(zoomScale * 100)}%`;
+        zoomResetBtn.classList.toggle('hidden', zoomScale <= 1.02);
+        zoomViewport.style.cursor = zoomScale > 1.02 ? (isPanning ? 'grabbing' : 'grab') : 'zoom-in';
+      }
+
+      function resetZoom(instant = false) {
+        zoomScale = 1;
+        panX = 0;
+        panY = 0;
+        applyZoomTransform(instant);
+      }
+
+      function setZoom(nextScale, focalClientX = null, focalClientY = null) {
+        const clamped = Math.max(1, Math.min(3.5, nextScale));
+        if (focalClientX !== null && focalClientY !== null && clamped > 1) {
+          const rect = zoomViewport.getBoundingClientRect();
+          const cx = focalClientX - (rect.left + rect.width / 2);
+          const cy = focalClientY - (rect.top + rect.height / 2);
+          const ratio = clamped / zoomScale;
+          panX = cx - (cx - panX) * ratio;
+          panY = cy - (cy - panY) * ratio;
+        }
+        zoomScale = clamped;
+        if (zoomScale <= 1.02) {
+          zoomScale = 1;
+          panX = 0;
+          panY = 0;
+        }
+        applyZoomTransform(false);
+      }
+
+      // Zoom buttons
+      document.getElementById('zoom-in-btn').addEventListener('click', (e) => { e.stopPropagation(); setZoom(zoomScale + 0.6); });
+      document.getElementById('zoom-out-btn').addEventListener('click', (e) => { e.stopPropagation(); setZoom(zoomScale - 0.6); });
+      zoomResetBtn.addEventListener('click', (e) => { e.stopPropagation(); resetZoom(); });
+
+      // Mouse wheel zoom directly at cursor
+      zoomViewport.addEventListener('wheel', (e) => {
+        if (modal.classList.contains('hidden') || isModalGridOpen) return;
+        e.preventDefault();
+        const delta = e.deltaY < 0 ? 0.35 : -0.35;
+        setZoom(zoomScale + delta, e.clientX, e.clientY);
+      }, { passive: false });
+
+      // Desktop mouse drag to pan + click to toggle 2.2x zoom
+      zoomViewport.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        isPanning = true;
+        panMoved = false;
+        startX = e.clientX - panX;
+        startY = e.clientY - panY;
+        if (zoomScale > 1.02) zoomViewport.style.cursor = 'grabbing';
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!isPanning || zoomScale <= 1.02) return;
+        const nx = e.clientX - startX;
+        const ny = e.clientY - startY;
+        if (Math.abs(nx - panX) > 3 || Math.abs(ny - panY) > 3) panMoved = true;
+        panX = nx;
+        panY = ny;
+        applyZoomTransform(true);
+      });
+      window.addEventListener('mouseup', () => {
+        if (!isPanning) return;
+        isPanning = false;
+        if (zoomScale > 1.02) zoomViewport.style.cursor = 'grab';
+      });
+      zoomViewport.addEventListener('click', (e) => {
+        if (panMoved) { panMoved = false; return; }
+        if (zoomScale <= 1.05) setZoom(2.2, e.clientX, e.clientY);
+        else resetZoom();
+      });
+
+      // Mobile touch: 2-finger pinch-to-zoom, 1-finger pan when zoomed, 1-finger swipe next/prev when at 1x
+      zoomViewport.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 2) {
+          const dx = e.touches[0].clientX - e.touches[1].clientX;
+          const dy = e.touches[0].clientY - e.touches[1].clientY;
+          pinchStartDist = Math.hypot(dx, dy);
+          pinchStartScale = zoomScale;
+        } else if (e.touches.length === 1) {
+          touchSwipeStartX = e.touches[0].clientX;
+          if (zoomScale > 1.02) {
+            isPanning = true;
+            startX = e.touches[0].clientX - panX;
+            startY = e.touches[0].clientY - panY;
+          }
+        }
+      }, { passive: true });
+
+      zoomViewport.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 2 && pinchStartDist > 0) {
+          e.preventDefault();
+          const dx = e.touches[0].clientX - e.touches[1].clientX;
+          const dy = e.touches[0].clientY - e.touches[1].clientY;
+          const dist = Math.hypot(dx, dy);
+          zoomScale = Math.max(1, Math.min(3.5, pinchStartScale * (dist / pinchStartDist)));
+          applyZoomTransform(true);
+        } else if (e.touches.length === 1 && isPanning && zoomScale > 1.02) {
+          e.preventDefault();
+          panX = e.touches[0].clientX - startX;
+          panY = e.touches[0].clientY - startY;
+          applyZoomTransform(true);
+        }
+      }, { passive: false });
+
+      zoomViewport.addEventListener('touchend', (e) => {
+        if (e.touches.length < 2) pinchStartDist = 0;
+        if (e.touches.length === 0) {
+          if (zoomScale <= 1.05 && touchSwipeStartX) {
+            const dx = e.changedTouches[0].clientX - touchSwipeStartX;
+            if (Math.abs(dx) > 55) {
+              if (dx < 0) showGalleryIndex(activeGalleryIdx + 1);
+              else showGalleryIndex(activeGalleryIdx - 1);
+            }
+          }
+          isPanning = false;
+          touchSwipeStartX = 0;
+          if (zoomScale <= 1.02) resetZoom();
+        }
+      }, { passive: true });
+
+      document.getElementById('modal-prev-btn').addEventListener('click', (e) => { e.stopPropagation(); showGalleryIndex(activeGalleryIdx - 1); });
+      document.getElementById('modal-next-btn').addEventListener('click', (e) => { e.stopPropagation(); showGalleryIndex(activeGalleryIdx + 1); });
+
+      toggleModalInfoBtn.addEventListener('click', () => {
+        modalInfoDrawer.classList.toggle('hidden');
+      });
+
+      function setModalGridMode(open) {
+        isModalGridOpen = open;
+        modalGridView.classList.toggle('hidden', !open);
+        modalVisual.classList.toggle('hidden', open);
+        modalGalleryStrip.classList.toggle('hidden', open);
+        if (activeModalProject && activeModalProject.gallery) {
+          modalGridLabel.textContent = open ? 'Single View' : `All ${activeModalProject.gallery.length} Photos`;
+        }
+      }
+
+      toggleModalGridBtn.addEventListener('click', () => setModalGridMode(!isModalGridOpen));
+
+      function setModalTab(tabKey) {
+        if (!activeModalProject) return;
+        document.querySelectorAll('.modal-tab-btn').forEach(btn => {
+          const isAct = btn.dataset.tab === tabKey;
+          btn.classList.toggle('bg-crimson', isAct);
+          btn.classList.toggle('text-white', isAct);
+          btn.classList.toggle('bg-white/5', !isAct);
+          btn.classList.toggle('text-neutral-300', !isAct);
+        });
+        modalTabContent.textContent = activeModalProject[tabKey] || activeModalProject.overview;
+      }
+
+      function showGalleryIndex(idx) {
+        if (!activeModalProject || !activeModalProject.gallery || !activeModalProject.gallery.length) return;
+        if (isModalGridOpen) setModalGridMode(false);
+        resetZoom(true);
+        const total = activeModalProject.gallery.length;
+        activeGalleryIdx = (idx + total) % total;
+        const item = activeModalProject.gallery[activeGalleryIdx];
+        stageMainImg.src = item.src;
+        stageMainImg.alt = `${activeModalProject.title} — ${item.label}`;
+        stageAmbient.src = item.src;
+        stageCounter.textContent = `${activeGalleryIdx + 1} / ${total}`;
+
+        modalGalleryStrip.querySelectorAll('.gallery-thumb').forEach((b, bi) => {
+          const act = bi === activeGalleryIdx;
+          b.classList.toggle('border-crimson', act);
+          b.classList.toggle('ring-1', act);
+          b.classList.toggle('ring-crimson', act);
+          b.classList.toggle('opacity-100', act);
+          b.classList.toggle('border-white/15', !act);
+          b.classList.toggle('opacity-55', !act);
+          if (act) b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+      }
+
+      function openProjectModal(projectId, startIdx = 0) {
+        const proj = PROJECTS.find(p => p.id === projectId);
+        if (!proj) return;
+        activeModalProject = proj;
+        activeGalleryIdx = startIdx;
+        isModalGridOpen = false;
+        modalGridView.classList.add('hidden');
+        modalVisual.classList.remove('hidden');
+        modalInfoDrawer.classList.add('hidden');
+
+        if (proj.gallery && proj.gallery.length > 0) {
+          modalGalleryStrip.classList.remove('hidden');
+          modalGridLabel.textContent = `All ${proj.gallery.length} Photos`;
+
+          modalGalleryStrip.innerHTML = proj.gallery.map((g, i) => `
+            <button type="button" class="gallery-thumb shrink-0 rounded-lg overflow-hidden border transition-all p-0.5 bg-black/40 hover:opacity-100 ${i === startIdx ? 'border-crimson ring-1 ring-crimson opacity-100' : 'border-white/15 opacity-55'}" data-idx="${i}" title="${g.label}">
+              <img src="${g.src}" alt="${g.label}" loading="lazy" decoding="async" class="w-20 h-14 rounded object-cover" />
+            </button>
+          `).join('');
+
+          modalGridItems.innerHTML = proj.gallery.map((g, i) => `
+            <button type="button" class="modal-grid-tile group relative rounded-xl overflow-hidden aspect-[4/3] border border-white/10 hover:border-crimson transition-all bg-black cursor-pointer" data-idx="${i}">
+              <img src="${g.src}" alt="${proj.title} — ${g.label}" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <span class="absolute bottom-2 right-2 px-2 py-0.5 rounded bg-black/80 text-[10px] font-mono text-white">${i + 1} / ${proj.gallery.length}</span>
+            </button>
+          `).join('');
+
+          modalGalleryStrip.querySelectorAll('.gallery-thumb').forEach(btn => {
+            btn.addEventListener('click', () => showGalleryIndex(parseInt(btn.dataset.idx, 10)));
+          });
+          modalGridItems.querySelectorAll('.modal-grid-tile').forEach(btn => {
+            btn.addEventListener('click', () => showGalleryIndex(parseInt(btn.dataset.idx, 10)));
+          });
+          showGalleryIndex(startIdx);
+        }
+
+        modalCategory.textContent = proj.category;
+        modalLocation.textContent = proj.city + ' · ' + proj.style;
+        modalTitle.textContent = proj.title;
+        const msg = encodeURIComponent(`Hello Mohamed Samy Works, I saw "${proj.title}" and would like to inquire about a similar project.`);
+        const waHref = `https://wa.me/201159308831?text=${msg}`;
+        modalWaLink.href = waHref;
+        modalWaLinkDrawer.href = waHref;
+
+        setModalTab('overview');
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (window.lucide) window.lucide.createIcons();
+      }
+
+      function closeProjectModal() {
+        resetZoom(true);
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.modal-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => setModalTab(btn.dataset.tab));
+      });
+      document.getElementById('close-modal-btn').addEventListener('click', closeProjectModal);
+      document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('hidden')) return;
+        if (e.key === 'Escape') {
+          if (zoomScale > 1.05) resetZoom();
+          else closeProjectModal();
+        }
+        if (e.key === 'ArrowRight') showGalleryIndex(activeGalleryIdx + 1);
+        if (e.key === 'ArrowLeft') showGalleryIndex(activeGalleryIdx - 1);
+        if (e.key === '+' || e.key === '=') setZoom(zoomScale + 0.5);
+        if (e.key === '-') setZoom(zoomScale - 0.5);
+        if (e.key === '0') resetZoom();
+      });
+
+      function attachCardInteractions() {
+        document.querySelectorAll('#projects-grid article[data-project-id]').forEach(card => {
+          card.addEventListener('click', () => openProjectModal(card.dataset.projectId));
+
+          card.addEventListener('mouseenter', () => {
+            if (card.dataset.accent) {
+              activeSceneAccentHex = parseInt(card.dataset.accent.replace('#', ''), 16);
+            }
+          });
+
+          card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            card.style.transform = `perspective(900px) rotateX(${(-y * 6).toFixed(2)}deg) rotateY(${(x * 6).toFixed(2)}deg) translateY(-4px)`;
+          });
+
+          card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            activeSceneAccentHex = 0xff1e1e;
+          });
+        });
+      }
+
+      // Filter button listeners
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeCategory = btn.dataset.filter;
+          document.querySelectorAll('.filter-btn').forEach(b => {
+            const active = b === btn;
+            b.classList.toggle('bg-crimson', active);
+            b.classList.toggle('text-white', active);
+            b.classList.toggle('glass-panel', !active);
+            b.classList.toggle('text-neutral-300', !active);
+          });
+          renderProjects();
+        });
+      });
+
+      document.getElementById('city-filter').addEventListener('change', (e) => {
+        activeCity = e.target.value;
+        renderProjects();
+      });
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+
+      // Smooth scroll helper (works reliably inside Google Sites Full Page Embed iframe)
+      function scrollToSection(selector) {
+        if (!selector || selector === '#') return;
+        const target = document.querySelector(selector);
+        if (!target) return;
+        const headerOffset = 68;
+        const y = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          if (href && href.length > 1) {
+            e.preventDefault();
+            scrollToSection(href);
+          }
+        });
+      });
+
+      // Rail jump buttons
+      document.querySelectorAll('.rail-btn').forEach(btn => {
+        btn.addEventListener('click', () => scrollToSection(btn.dataset.target));
+      });
+
+      // Scroll Reveal Observer
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal-el').forEach(el => revealObserver.observe(el));
+
+      // ==========================================
+      // 4. THREE.JS 3D ARCHITECTURAL WORLD + SCROLL SYSTEM
+      // ==========================================
+      const canvas = document.getElementById('webgl-canvas');
+      let mouseNDC = { x: 0, y: 0 };
+
+      let targetScrollProgress = 0;
+      let smoothScrollProgress = 0;
+
+      const STAGES = [
+        { id: 'home', label: '01 / HERO', cam: [0, 3.2, 16], look: [0, 1.5, 0] },
+        { id: 'vision', label: '02 / VISION', cam: [11, 4.5, 9], look: [0, 2.0, -2] },
+        { id: 'works', label: '03 / WORKS', cam: [-9, 7.2, 8], look: [0, 1.0, -4] },
+        { id: 'campaigns', label: '04 / CAMPAIGNS', cam: [6, 2.2, -10], look: [0, 2.2, 0] },
+        { id: 'about', label: '05 / ABOUT', cam: [0, 5.5, 13], look: [0, 1.8, 0] }
+      ];
+
+      function updateScrollMetrics() {
+        const docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        targetScrollProgress = Math.min(1, Math.max(0, window.scrollY / docHeight));
+
+        const stageIdx = Math.min(STAGES.length - 1, Math.floor(targetScrollProgress * STAGES.length));
+
+        document.querySelectorAll('.scroll-rail-dot').forEach(dot => {
+          dot.classList.toggle('active', dot.dataset.dot === STAGES[stageIdx].id);
+        });
+      }
+
+      window.addEventListener('scroll', updateScrollMetrics, { passive: true });
+      window.addEventListener('mousemove', (e) => {
+        mouseNDC.x = (e.clientX / window.innerWidth) * 2 - 1;
+        mouseNDC.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      }, { passive: true });
+
+      let solidMaterials = [];
+      let wireframeOverlays = [];
+
+      function initThreeScene() {
+        if (typeof THREE === 'undefined') return;
+
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x101010);
+        scene.fog = new THREE.FogExp2(0x101010, 0.032);
+
+        const camera = new THREE.PerspectiveCamera(48, window.innerWidth / window.innerHeight, 0.1, 120);
+        camera.position.set(0, 3.2, 16);
+
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        const isMobile = window.innerWidth < 768;
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.25 : 1.75));
+
+        // Architectural Lighting
+        const ambient = new THREE.AmbientLight(0xffffff, 0.36);
+        scene.add(ambient);
+
+        const warmKey = new THREE.DirectionalLight(0xfff1e0, 1.15);
+        warmKey.position.set(10, 16, 12);
+        scene.add(warmKey);
+
+        const crimsonRim = new THREE.PointLight(0xff1e1e, 2.8, 36);
+        crimsonRim.position.set(-7, 5, -4);
+        scene.add(crimsonRim);
+
+        const coolFill = new THREE.PointLight(0x4a6fa5, 0.9, 30);
+        coolFill.position.set(9, 3, -9);
+        scene.add(coolFill);
+
+        // Architectural World Group
+        const archGroup = new THREE.Group();
+        scene.add(archGroup);
+
+        // Floor CAD Grid
+        const gridHelper = new THREE.GridHelper(60, 40, 0xff1e1e, 0x262626);
+        gridHelper.position.y = -2.2;
+        gridHelper.material.opacity = 0.45;
+        gridHelper.material.transparent = true;
+        archGroup.add(gridHelper);
+
+        // Materials
+        const obsidianMat = new THREE.MeshStandardMaterial({
+          color: 0x1a1a1a,
+          roughness: 0.32,
+          metalness: 0.72
+        });
+        const darkConcreteMat = new THREE.MeshStandardMaterial({
+          color: 0x242424,
+          roughness: 0.65,
+          metalness: 0.25
+        });
+        const crimsonGlowMat = new THREE.MeshStandardMaterial({
+          color: 0xff1e1e,
+          emissive: 0xff1e1e,
+          emissiveIntensity: 0.85,
+          roughness: 0.2,
+          metalness: 0.4
+        });
+
+        solidMaterials.push(obsidianMat, darkConcreteMat);
+
+        // Procedural Architectural Pavilion & Floating Monoliths
+        const structures = [
+          { w: 7.5, h: 0.35, d: 5.5, x: 0, y: -1.8, z: 0, mat: obsidianMat },
+          { w: 7.5, h: 0.3, d: 5.5, x: 0, y: 3.4, z: 0, mat: obsidianMat },
+          { w: 0.45, h: 5.2, d: 0.45, x: -3.2, y: 0.8, z: -2.2, mat: darkConcreteMat },
+          { w: 0.45, h: 5.2, d: 0.45, x: 3.2, y: 0.8, z: -2.2, mat: darkConcreteMat },
+          { w: 0.45, h: 5.2, d: 0.45, x: -3.2, y: 0.8, z: 2.2, mat: darkConcreteMat },
+          { w: 0.45, h: 5.2, d: 0.45, x: 3.2, y: 0.8, z: 2.2, mat: darkConcreteMat },
+          { w: 4.8, h: 3.6, d: 0.32, x: 0.8, y: 0.9, z: -1.2, mat: obsidianMat },
+          // Subtle background architectural crimson datum beams
+          { w: 12.0, h: 0.045, d: 0.045, x: 2.2, y: -1.62, z: -2.6, mat: crimsonGlowMat },
+          { w: 0.045, h: 6.4, d: 0.045, x: 5.8, y: 1.2, z: -3.2, mat: crimsonGlowMat },
+          // Surrounding floating architectural volumes
+          { w: 2.4, h: 4.6, d: 2.4, x: -7.5, y: 0.3, z: -4.5, mat: darkConcreteMat },
+          { w: 3.2, h: 2.8, d: 2.2, x: 7.2, y: -0.6, z: -5.2, mat: obsidianMat },
+          { w: 1.8, h: 6.4, d: 1.8, x: 6.4, y: 1.2, z: 4.2, mat: darkConcreteMat },
+          { w: 2.8, h: 1.4, d: 4.2, x: -6.8, y: 2.2, z: 4.8, mat: obsidianMat },
+          { w: 4.2, h: 0.4, d: 2.8, x: -2.2, y: 5.2, z: -6.5, mat: obsidianMat }
+        ];
+
+        const floatingMeshes = [];
+        structures.forEach((s, idx) => {
+          const geo = new THREE.BoxGeometry(s.w, s.h, s.d);
+          const mesh = new THREE.Mesh(geo, s.mat);
+          mesh.position.set(s.x, s.y, s.z);
+          archGroup.add(mesh);
+
+          const edges = new THREE.EdgesGeometry(geo);
+          const lineMat = new THREE.LineBasicMaterial({
+            color: s.mat === crimsonGlowMat ? 0xff4d4d : 0xffffff,
+            transparent: true,
+            opacity: s.mat === crimsonGlowMat ? 0.85 : 0.14
+          });
+          const wire = new THREE.LineSegments(edges, lineMat);
+          mesh.add(wire);
+          wireframeOverlays.push(lineMat);
+
+          if (idx >= 9) {
+            floatingMeshes.push({ mesh, baseY: s.y, speed: 0.4 + idx * 0.08, phase: idx * 1.1 });
+          }
+        });
+
+        // Subtle Architectural Dust / Coordinate Particles
+        const particleCount = isMobile ? 110 : 220;
+        const pGeo = new THREE.BufferGeometry();
+        const pPos = new Float32Array(particleCount * 3);
+        for (let i = 0; i < particleCount; i++) {
+          pPos[i * 3] = (Math.random() - 0.5) * 38;
+          pPos[i * 3 + 1] = Math.random() * 16 - 2;
+          pPos[i * 3 + 2] = (Math.random() - 0.5) * 38;
+        }
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+        const pMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.07, transparent: true, opacity: 0.45 });
+        const particles = new THREE.Points(pGeo, pMat);
+        scene.add(particles);
+
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        const currentLook = new THREE.Vector3(0, 1.5, 0);
+        const targetColor = new THREE.Color(0xff1e1e);
+        const clock = new THREE.Clock();
+
+        function animate() {
+          requestAnimationFrame(animate);
+          if (document.hidden) return;
+          const t = clock.getElapsedTime();
+
+          smoothScrollProgress += (targetScrollProgress - smoothScrollProgress) * 0.065;
+
+          floatingMeshes.forEach(item => {
+            item.mesh.position.y = item.baseY + Math.sin(t * item.speed + item.phase) * 0.22;
+          });
+          particles.rotation.y = t * 0.015;
+
+          // Smoothly shift rim light toward hovered project's architectural mood
+          targetColor.setHex(activeSceneAccentHex);
+          crimsonRim.color.lerp(targetColor, 0.05);
+          crimsonRim.intensity = 2.6 + Math.sin(t * 1.4) * 0.35;
+
+          const totalSegs = STAGES.length - 1;
+          const scaled = smoothScrollProgress * totalSegs;
+          const idx = Math.min(totalSegs - 1, Math.floor(scaled));
+          const frac = scaled - idx;
+          const ease = frac * frac * (3 - 2 * frac);
+
+          const sA = STAGES[idx];
+          const sB = STAGES[idx + 1];
+
+          const tx = sA.cam[0] + (sB.cam[0] - sA.cam[0]) * ease + mouseNDC.x * 0.9;
+          const ty = sA.cam[1] + (sB.cam[1] - sA.cam[1]) * ease + mouseNDC.y * 0.5;
+          const tz = sA.cam[2] + (sB.cam[2] - sA.cam[2]) * ease;
+
+          camera.position.x += (tx - camera.position.x) * 0.08;
+          camera.position.y += (ty - camera.position.y) * 0.08;
+          camera.position.z += (tz - camera.position.z) * 0.08;
+
+          const lx = sA.look[0] + (sB.look[0] - sA.look[0]) * ease;
+          const ly = sA.look[1] + (sB.look[1] - sA.look[1]) * ease;
+          const lz = sA.look[2] + (sB.look[2] - sA.look[2]) * ease;
+          currentLook.lerp(new THREE.Vector3(lx, ly, lz), 0.08);
+          camera.lookAt(currentLook);
+
+          renderer.render(scene, camera);
+        }
+
+        animate();
+      }
+      // Boot
+      renderProjects();
+      renderCampaigns();
+      updateScrollMetrics();
+      initThreeScene();
+      if (window.lucide) window.lucide.createIcons();
+    })();
+  </script>
+</body>
+</html>
