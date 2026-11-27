@@ -2,7 +2,7 @@
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Mohamed Samy Works — Civil Engineering &amp; Interior Architecture</title>
   <meta name="description" content="Mohamed Samy Works — Civil engineer and interior designer in Egypt delivering core-to-key residential and commercial architecture across Beni Suef, Sheikh Zayed, and Cairo. Real executed spaces including After 8 Cafe, BUNO Cafe, Pyramids Heights, and Zahraa El-Maadi." />
   <meta name="keywords" content="Mohamed Samy Works, محمد سامي, interior design Egypt, civil engineer Beni Suef, interior architecture Sheikh Zayed, finishing Cairo, After 8 Cafe, BUNO Cafe, turnkey finishing Egypt, تشطيبات بني سويف" />
@@ -34,26 +34,26 @@
   <meta property="og:url" content="https://www.mohamedsamyworks.com/" />
   <meta property="og:title" content="Mohamed Samy Works — Civil Engineering &amp; Interior Architecture" />
   <meta property="og:description" content="From raw brick to turnkey reality — residential and commercial interior architecture executed with civil engineering precision across Beni Suef, Sheikh Zayed, and Cairo." />
-  <meta property="og:image" content="https://www.mohamedsamyworks.com/assets/v2/og-cover.jpg" />
-  <meta property="og:image:secure_url" content="https://www.mohamedsamyworks.com/assets/v2/og-cover.jpg" />
+  <meta property="og:image" content="https://www.mohamedsamyworks.com/assets/v2/og-logo.jpg" />
+  <meta property="og:image:secure_url" content="https://www.mohamedsamyworks.com/assets/v2/og-logo.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="After 8 Cafe — Executed Commercial Interior Architecture by Mohamed Samy Works" />
+  <meta property="og:image:alt" content="Mohamed Samy Works logo" />
 
   <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.mohamedsamyworks.com/" />
   <meta name="twitter:title" content="Mohamed Samy Works — Civil Engineering &amp; Interior Architecture" />
   <meta name="twitter:description" content="Core-to-key residential and commercial spaces across Beni Suef, Sheikh Zayed, and Cairo. Explore 11 real executed projects and 169 site photographs." />
-  <meta name="twitter:image" content="https://www.mohamedsamyworks.com/assets/v2/og-cover.jpg" />
-  <meta name="twitter:image:alt" content="After 8 Cafe — Executed Project by Mohamed Samy Works" />
+  <meta name="twitter:image" content="https://www.mohamedsamyworks.com/assets/v2/og-logo.jpg" />
+  <meta name="twitter:image:alt" content="Mohamed Samy Works logo" />
 
   <!-- Fonts & Runtime Dependencies -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/v2/site.e91c0e24.css" />
+  <link rel="stylesheet" href="/assets/v2/site.958fcf1d.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 
@@ -66,7 +66,7 @@
           "@type": "HomeAndConstructionBusiness",
           "@id": "https://www.mohamedsamyworks.com/#organization",
           "name": "Mohamed Samy Works",
-          "alternateName": ["محمد سامي", "Mohamed Samy"],
+          "alternateName": ["Sam Works", "محمد سامي", "Mohamed Samy"],
           "url": "https://www.mohamedsamyworks.com/",
           "logo": {
             "@type": "ImageObject",
@@ -176,6 +176,15 @@
       box-sizing: border-box;
     }
 
+    /* iOS / installed-app polish */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    #wa-fab { bottom: calc(1rem + env(safe-area-inset-bottom)); right: calc(1rem + env(safe-area-inset-right)); }
+    #modal-gallery-strip { padding-bottom: calc(0.625rem + env(safe-area-inset-bottom)); }
+    #project-modal { padding-top: env(safe-area-inset-top); }
+    #main-header { padding-top: env(safe-area-inset-top); }
+    @media (display-mode: standalone) { body { overscroll-behavior-y: none; } }
+
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 5rem;
@@ -203,6 +212,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
+      height: 100lvh;
       z-index: 0;
       pointer-events: none;
     }
@@ -615,11 +625,16 @@
               Where creativity meets documentation — turning executed sites into clear visual proof.
             </p>
             <p class="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
-              Instead of abstract promises, each campaign documents real completed sites, raw-to-finished transformations, and material craftsmanship — from <span class="text-white">After 8 Cafe</span> and <span class="text-white">BUNO Cafe</span> to <span class="text-white">Pyramids Heights</span> and <span class="text-white">Al Rawda District</span>.
+              Straight from the studio’s Facebook page, newest first: site advice, craft close-ups, project reveals and raw-to-finished handovers — each video filmed on real sites, with its original caption.
             </p>
           </div>
 
           <div class="flex flex-wrap gap-3 shrink-0">
+            <a href="https://www.facebook.com/mohamedsamyworks/" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-crimson text-white text-xs font-semibold tracking-[0.14em] uppercase hover:bg-crimson-dark transition-all">
+              <i data-lucide="facebook" class="w-3.5 h-3.5"></i>
+              <span>Facebook</span>
+            </a>
             <a href="https://www.tiktok.com/@mohamedsamyworks" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-2 px-5 py-3 rounded-full glass-panel text-white text-xs font-semibold tracking-[0.14em] uppercase hover:border-crimson hover:bg-crimson transition-all duration-300">
               <i data-lucide="play" class="w-3.5 h-3.5 text-crimson"></i>
@@ -633,7 +648,7 @@
           </div>
         </div>
 
-        <!-- 6 Grounded Campaigns Grid -->
+        <!-- Real Facebook campaigns grid -->
         <div id="campaigns-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
       </div>
     </section>
@@ -1373,55 +1388,17 @@
         }
       ];
 
+      // Real campaigns from the Mohamed Samy Works Facebook page, newest first (captions quoted as posted)
       const CAMPAIGNS = [
-        {
-          num: '01',
-          title: 'After 8 Cafe — Reveal & Burst',
-          tag: 'Commercial Showcase',
-          city: 'Beni Suef',
-          desc: '“No need to keep telling you what we built — just see it.” Highlighting the skylight patio, micro-cement columns, and After 8 Secret Room.',
-          projectId: 'after-8-cafe'
-        },
-        {
-          num: '02',
-          title: 'Pyramids Heights',
-          tag: 'Compound Showcase',
-          city: 'Sheikh Zayed',
-          desc: '23-photo architectural walkthrough of magnetic track ceilings, fluted TV walls, and custom dark-stone master bathrooms.',
-          projectId: 'pyramids-heights'
-        },
-        {
-          num: '03',
-          title: 'BUNO Cafe — Storefront & Interior',
-          tag: 'Commercial Trailer',
-          city: 'Beni Suef',
-          desc: 'From the curved white street canopy and tropical terrace to the raw concrete and warm wood coffee bar inside.',
-          projectId: 'buno-cafe'
-        },
-        {
-          num: '04',
-          title: 'Foundation First · By Pen & Ruler',
-          tag: 'Brand Philosophy',
-          city: 'Egypt',
-          desc: '“We receive your apartment in raw brick and hand back your dream in reality — measured to the millimetre.” Meet the engineer behind the work.',
-          sectionTarget: '#about'
-        },
-        {
-          num: '05',
-          title: 'Al Rawda District — Timber & Sage',
-          tag: 'Residential Showcase',
-          city: 'Beni Suef',
-          desc: 'Spotlight on clean modern carpentry: wrapped wood-slat ceilings, sage fluted corridor doors, and warm perimeter coves.',
-          projectId: 'al-rawda-district'
-        },
-        {
-          num: '06',
-          title: 'Kornish Beni Suef — Duplex Craft',
-          tag: 'Luxury Residence',
-          city: 'Beni Suef',
-          desc: '22 site photographs showcasing LED-lit Emperador marble stairs, glass-and-brass balustrades, and sculpted freestanding stone basins.',
-          projectId: 'kornish-beni-suef'
-        }
+        { num: '01', date: 'Nov 2026', tag: 'Site Advice', title: 'Foundation First', hook: 'قبل ما تشطب شقتك… أغلى حاجة ممكن تعملها هي إنك توفر في التأسيس', desc: 'Why cutting corners on plastering and rough-ins costs you twice, and why every handover is checked with pen and ruler.', thumb: '/assets/v2/camp/1703244381521862.webp', fb: 'https://www.facebook.com/watch/?v=1703244381521862', projectId: '' },
+        { num: '02', date: 'Oct 2026', tag: 'New Project', title: 'A New Villa, Day One', hook: 'كل فيلا عظيمة بتبدأ بخطوة.. وإحنا هنا بنبدأ حكاية جديدة', desc: 'The start of a new villa in Beni Suef, followed from the foundation stage onward.', thumb: '/assets/v2/camp/2153455455244741.webp', fb: 'https://www.facebook.com/watch/?v=2153455455244741', projectId: '' },
+        { num: '03', date: 'Sep 2026', tag: 'Project Reveal', title: 'After 8 — The Reveal', hook: 'After 8 — a bold architectural identity, shaped through curves, contrast, and light.', desc: 'The finished café, flowing between the indoor bar and the skylit atrium.', thumb: '/assets/v2/camp/1664342581780808.webp', fb: 'https://www.facebook.com/watch/?v=1664342581780808', projectId: 'after-8-cafe' },
+        { num: '04', date: 'Aug 2026', tag: 'Craft', title: 'Mega Slab, Step by Step', hook: 'لما البلاطة تبقى بالحجم ده… غلطة واحدة ممكن تبوّظ شكل المكان كله', desc: 'How large-format porcelain is measured, levelled and installed on site.', thumb: '/assets/v2/camp/1371888748344970.webp', fb: 'https://www.facebook.com/watch/?v=1371888748344970', projectId: '' },
+        { num: '05', date: 'Jul 2026', tag: 'Handover', title: 'Decide Once, Finish Right', hook: '96% من الناس بيغيروا رأيهم في التشطيب 3 مرات... إحنا خليناها مرة واحدة وصح', desc: 'Every detail of the apartment studied before work starts, so the result matches the agreement.', thumb: '/assets/v2/camp/1899676780706000.webp', fb: 'https://www.facebook.com/watch/?v=1899676780706000', projectId: '' },
+        { num: '06', date: 'Apr 2026', tag: 'Craft', title: 'Large Formats on the Nile Corniche', hook: 'الناس كلها بتخاف من البورسلين المقاسات الكبيره… المشكلة في اللي بينفذ', desc: '120×180 floor slabs and 80×160 bathroom walls executed on Kornish El Nile, Beni Suef.', thumb: '/assets/v2/camp/916669524493963.webp', fb: 'https://www.facebook.com/watch/?v=916669524493963', projectId: '' },
+        { num: '07', date: 'Jan 2026', tag: 'Latest Work', title: 'Sage & Peach Kitchen', hook: 'From our latest works with @kabine_woodworks', desc: 'A two-tone kitchen walkthrough, built with joinery partner Kabine Woodworks.', thumb: '/assets/v2/camp/1543283100267594.webp', fb: 'https://www.facebook.com/watch/?v=1543283100267594', projectId: 'sage-peach-kitchen' },
+        { num: '08', date: 'Jan 2026', tag: 'Site Advice', title: '4 Points Before You Finish', hook: 'قبل ما تشطب شقتك… خد بالك من الأربع نقاط دول', desc: 'Plastering first, an engineer on site, simplicity, and lighting distribution.', thumb: '/assets/v2/camp/1461240472234773.webp', fb: 'https://www.facebook.com/watch/?v=1461240472234773', projectId: '' },
+        { num: '09', date: 'Dec 2025', tag: 'Raw to Handover', title: '45 Days in Mokattam', hook: '45 يوم غيّروا شكل المكان بالكامل!', desc: 'A 60 m² apartment taken from raw brick to a finished home, within the client’s budget.', thumb: '/assets/v2/camp/821792230828946.webp', fb: 'https://www.facebook.com/watch/?v=821792230828946', projectId: 'mokattam-cairo' }
       ];
 
       // ==========================================
@@ -1531,29 +1508,33 @@
 
       function renderCampaigns() {
         campaignsGrid.innerHTML = CAMPAIGNS.map(c => `
-          <button type="button" data-camp-proj="${c.projectId || ''}" data-camp-sec="${c.sectionTarget || ''}"
-             class="campaign-card text-left glass-card rounded-2xl p-6 flex flex-col justify-between space-y-5 group cursor-pointer">
-            <div class="flex items-center justify-between w-full gap-2">
-              <span class="text-[10px] font-semibold uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-crimson/15 text-crimson border border-crimson/30">${c.tag}</span>
-              <span class="text-[11px] font-mono text-neutral-400">${c.city} · ${c.num}</span>
-            </div>
-            <div>
-              <h3 class="text-xl font-medium text-white group-hover:text-crimson transition-colors">${c.title}</h3>
-              <p class="text-xs sm:text-sm text-neutral-300 font-light mt-2 leading-relaxed">${c.desc}</p>
-            </div>
-            <div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-neutral-300 group-hover:text-white pt-3 border-t border-white/10 w-full">
-              <span class="w-7 h-7 rounded-full bg-crimson/20 text-crimson flex items-center justify-center group-hover:bg-crimson group-hover:text-white transition-colors">
-                <i data-lucide="${c.projectId ? 'images' : 'user'}" class="w-3.5 h-3.5"></i>
+          <article class="campaign-card glass-card rounded-2xl overflow-hidden flex flex-col group">
+            <a href="${c.fb}" target="_blank" rel="noopener" class="relative block aspect-[4/5] overflow-hidden bg-charcoal" aria-label="Watch ${c.title} on Facebook">
+              <img src="${c.thumb}" alt="${c.title} — Mohamed Samy Works campaign video" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+              <span class="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-black/80 border border-white/15 text-white">${c.tag}</span>
+              <span class="absolute top-3 right-3 text-[10px] font-mono px-2.5 py-1 rounded-full bg-black/80 border border-white/15 text-neutral-200">${c.date}</span>
+              <span class="absolute inset-0 m-auto w-14 h-14 rounded-full bg-crimson/90 text-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                <i data-lucide="play" class="w-6 h-6"></i>
               </span>
-              <span>${c.projectId ? 'Open Real Site Photos' : 'See Engineering Process'}</span>
+              <p dir="auto" class="absolute bottom-3 left-4 right-4 text-sm text-white font-medium leading-relaxed">“${c.hook}”</p>
+            </a>
+            <div class="p-5 flex-1 flex flex-col justify-between gap-4">
+              <div>
+                <h3 class="text-lg font-medium text-white group-hover:text-crimson transition-colors">${c.title}</h3>
+                <p class="text-xs sm:text-sm text-neutral-300 font-light mt-1.5 leading-relaxed">${c.desc}</p>
+              </div>
+              <div class="flex flex-wrap items-center gap-2 pt-3 border-t border-white/10">
+                <a href="${c.fb}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-crimson/15 border border-crimson/30 text-crimson text-[11px] font-semibold uppercase tracking-wider hover:bg-crimson hover:text-white transition-colors">
+                  <i data-lucide="play" class="w-3 h-3"></i><span>Watch on Facebook</span>
+                </a>
+                ${c.projectId ? `<button type="button" data-camp-proj="${c.projectId}" class="camp-open inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/15 text-neutral-200 text-[11px] font-semibold uppercase tracking-wider hover:text-white hover:border-white/40 transition-colors"><i data-lucide="images" class="w-3 h-3"></i><span>Project Photos</span></button>` : ''}
+              </div>
             </div>
-          </button>
+          </article>
         `).join('');
-        campaignsGrid.querySelectorAll('.campaign-card').forEach(card => {
-          card.addEventListener('click', () => {
-            if (card.dataset.campProj) openProjectModal(card.dataset.campProj);
-            else if (card.dataset.campSec) scrollToSection(card.dataset.campSec);
-          });
+        campaignsGrid.querySelectorAll('.camp-open').forEach(btn => {
+          btn.addEventListener('click', () => openProjectModal(btn.dataset.campProj));
         });
         if (window.lucide) window.lucide.createIcons();
       }
