@@ -53,7 +53,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/v2/site.1270b87a.css" />
+  <link rel="stylesheet" href="/assets/v2/site.e91c0e24.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 
@@ -124,16 +124,16 @@
             "@type": "ItemList",
             "numberOfItems": 11,
             "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Sage & Peach Kitchen — with Kabine Woodworks (Residential)", "url": "https://www.mohamedsamyworks.com/works/sage-peach-kitchen" },
-              { "@type": "ListItem", "position": 2, "name": "Mokattam Apartment — Cairo (Residential)", "url": "https://www.mohamedsamyworks.com/works/mokattam-cairo" },
-              { "@type": "ListItem", "position": 3, "name": "After 8 Cafe — Beni Suef (Commercial)", "url": "https://www.mohamedsamyworks.com/works/after-8-cafe" },
-              { "@type": "ListItem", "position": 4, "name": "Pyramids Heights Compound — Sheikh Zayed (Residential)", "url": "https://www.mohamedsamyworks.com/works/pyramids-heights" },
-              { "@type": "ListItem", "position": 5, "name": "BUNO Cafe — Beni Suef (Commercial)", "url": "https://www.mohamedsamyworks.com/works/buno-cafe" },
-              { "@type": "ListItem", "position": 6, "name": "Zahraa El-Maadi – Al Yasmeen — Cairo (Residential)", "url": "https://www.mohamedsamyworks.com/works/zahraa-el-maadi" },
-              { "@type": "ListItem", "position": 7, "name": "East Nile – First District — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/east-nile-first" },
+              { "@type": "ListItem", "position": 1, "name": "After 8 Cafe — Beni Suef (Commercial)", "url": "https://www.mohamedsamyworks.com/works/after-8-cafe" },
+              { "@type": "ListItem", "position": 2, "name": "Sage & Peach Kitchen — with Kabine Woodworks (Residential)", "url": "https://www.mohamedsamyworks.com/works/sage-peach-kitchen" },
+              { "@type": "ListItem", "position": 3, "name": "Mokattam Apartment — Cairo (Residential)", "url": "https://www.mohamedsamyworks.com/works/mokattam-cairo" },
+              { "@type": "ListItem", "position": 4, "name": "BUNO Cafe — Beni Suef (Commercial)", "url": "https://www.mohamedsamyworks.com/works/buno-cafe" },
+              { "@type": "ListItem", "position": 5, "name": "Al Rawda District — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/al-rawda-district" },
+              { "@type": "ListItem", "position": 6, "name": "Pyramids Heights Compound — Sheikh Zayed (Residential)", "url": "https://www.mohamedsamyworks.com/works/pyramids-heights" },
+              { "@type": "ListItem", "position": 7, "name": "Al-Narges Compound — Sheikh Zayed (Residential)", "url": "https://www.mohamedsamyworks.com/works/al-narges-zayed" },
               { "@type": "ListItem", "position": 8, "name": "Makkah Compound – East Nile — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/makkah-compound" },
-              { "@type": "ListItem", "position": 9, "name": "Al Rawda District — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/al-rawda-district" },
-              { "@type": "ListItem", "position": 10, "name": "Al-Narges Compound — Sheikh Zayed (Residential)", "url": "https://www.mohamedsamyworks.com/works/al-narges-zayed" },
+              { "@type": "ListItem", "position": 9, "name": "Zahraa El-Maadi – Al Yasmeen — Cairo (Residential)", "url": "https://www.mohamedsamyworks.com/works/zahraa-el-maadi" },
+              { "@type": "ListItem", "position": 10, "name": "East Nile – First District — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/east-nile-first" },
               { "@type": "ListItem", "position": 11, "name": "Kornish Beni Suef — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/kornish-beni-suef" }
             ]
           }
@@ -143,6 +143,29 @@
   </script>
 
   <style>
+
+    /* Footer sign-off: same Cintarini signature as the Hossam Fekry platform, in this brand's crimson */
+    @font-face { font-family: 'Cintarini'; src: url('/assets/fonts/Cintarini.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+    .footer-signature { font-family: 'Cintarini', cursive; font-weight: 400; letter-spacing: normal; font-size: clamp(0.9rem, 3.4vw, 1.4rem); line-height: 1.8; display: inline-block; padding-block: 0.14em; overflow: visible; }
+    @media (min-width: 768px) { .footer-signature { font-size: clamp(1.1rem, 1.65vw, 1.25rem); } }
+    .ft-sign { display: flex; justify-content: center; }
+    .ft-sign__link { display: inline-flex; min-height: 2.75rem; max-width: 100%; align-items: center; gap: .6rem; white-space: nowrap; border-radius: .25rem; text-decoration: none; }
+    .ft-sign__word { flex-shrink: 0; font-size: .6875rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; line-height: 1; color: #a3a3a3; transition: color .2s ease; }
+    .ft-sign__link:hover .ft-sign__word { color: #ffffff; }
+    .ft-sign__name { flex-shrink: 0; color: #FF1E1E; -webkit-text-stroke: 0.4px rgba(255, 30, 30, .75); paint-order: stroke fill;
+      background-image: linear-gradient(105deg, #FF1E1E 0%, #FF1E1E 40%, rgba(255,255,255,.95) 50%, #FF1E1E 60%, #FF1E1E 100%);
+      background-size: 260% 100%; background-position: 100% center; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      transition: background-position .9s ease; }
+    .ft-sign__link:hover .ft-sign__name { background-position: 0% center; }
+    .ft-sign__link:focus-visible { outline: 2px solid #FF1E1E; outline-offset: 4px; }
+    @supports (animation-timeline: view()) {
+      @media (prefers-reduced-motion: no-preference) {
+        .ft-sign__name { animation: ft-sign-in linear both; animation-timeline: view(); animation-range: entry 0% entry 90%; }
+        .ft-sign__word { animation: ft-sign-word linear both; animation-timeline: view(); animation-range: entry 30% entry 100%; }
+      }
+    }
+    @keyframes ft-sign-in { from { opacity: 0; filter: blur(10px); transform: translateX(-1.25rem) skewX(-10deg); } 60% { opacity: 1; filter: blur(2px); } to { opacity: 1; filter: blur(0); transform: none; } }
+    @keyframes ft-sign-word { from { opacity: 0; letter-spacing: .6em; } to { opacity: 1; letter-spacing: .3em; } }
     :root {
       --bg-obsidian: #101010;
       --bg-charcoal: #181818;
@@ -299,7 +322,7 @@
 
       <!-- Actions -->
       <div class="flex items-center gap-3">
-        <a href="https://wa.me/201159308831?text=Hello%20Mohamed%20Samy%20Works%2C%20I%20would%20like%20to%20inquire%20about%20a%20finishing%20%2F%20interior%20architecture%20project." target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/201159308831?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%B4%D8%BA%D9%84%D9%83%D9%85%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20Mohamed%20Samy%20Works%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8.%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%28%D8%B4%D9%82%D8%A9%20%2F%20%D9%81%D9%8A%D9%84%D8%A7%20%2F%20%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%29%3A%20%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A%D8%A9%20%28%D8%B7%D9%88%D8%A8%20%D8%A3%D8%AD%D9%85%D8%B1%20%2F%20%D9%86%D8%B5%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8%20%2F%20%D8%AA%D8%AC%D8%AF%D9%8A%D8%AF%29%3A%20" target="_blank" rel="noopener noreferrer"
            class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-xs font-semibold tracking-wider uppercase hover:bg-crimson hover:text-white transition-all duration-300">
           <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
           <span>Start Project</span>
@@ -318,7 +341,7 @@
       <a href="#works" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Works (11 Projects)</a>
       <a href="#campaigns" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Campaigns</a>
       <a href="#about" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">About &amp; Process</a>
-      <a href="https://wa.me/201159308831?text=Hello%20Mohamed%20Samy%20Works%2C%20I%20would%20like%20to%20inquire%20about%20a%20project." target="_blank" rel="noopener noreferrer"
+      <a href="https://wa.me/201159308831?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%B4%D8%BA%D9%84%D9%83%D9%85%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20Mohamed%20Samy%20Works%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8.%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%28%D8%B4%D9%82%D8%A9%20%2F%20%D9%81%D9%8A%D9%84%D8%A7%20%2F%20%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%29%3A%20%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A%D8%A9%20%28%D8%B7%D9%88%D8%A8%20%D8%A3%D8%AD%D9%85%D8%B1%20%2F%20%D9%86%D8%B5%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8%20%2F%20%D8%AA%D8%AC%D8%AF%D9%8A%D8%AF%29%3A%20" target="_blank" rel="noopener noreferrer"
          class="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-crimson text-white text-xs font-semibold uppercase tracking-wider">
         <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
         <span>WhatsApp Consultation</span>
@@ -385,7 +408,7 @@
               <span>Explore 11 Real Works</span>
               <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
             </a>
-            <a href="https://wa.me/201159308831?text=Hello%20Mohamed%20Samy%20Works%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20my%20space." target="_blank" rel="noopener noreferrer"
+            <a href="https://wa.me/201159308831?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%B4%D8%BA%D9%84%D9%83%D9%85%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20Mohamed%20Samy%20Works%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8.%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%28%D8%B4%D9%82%D8%A9%20%2F%20%D9%81%D9%8A%D9%84%D8%A7%20%2F%20%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%29%3A%20%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A%D8%A9%20%28%D8%B7%D9%88%D8%A8%20%D8%A3%D8%AD%D9%85%D8%B1%20%2F%20%D9%86%D8%B5%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8%20%2F%20%D8%AA%D8%AC%D8%AF%D9%8A%D8%AF%29%3A%20" target="_blank" rel="noopener noreferrer"
                class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-crimson text-white text-xs font-bold tracking-[0.16em] uppercase hover:bg-white hover:text-black transition-all duration-300 shadow-lg">
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>Consult on WhatsApp</span>
@@ -444,7 +467,7 @@
               </div>
               <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
                 <div>
-                  <div class="text-[10px] uppercase tracking-[0.24em] text-crimson font-semibold">Flagship Commercial Space</div>
+                  <div class="text-[10px] uppercase tracking-[0.24em] text-white font-semibold"><span class="inline-block px-2 py-0.5 rounded bg-crimson/90">Flagship Commercial Space</span></div>
                   <div class="text-base sm:text-lg font-semibold text-white mt-0.5">After 8 Cafe · Beni Suef</div>
                   <div class="text-xs text-neutral-300 mt-1">Skylight atrium · Micro-cement columns · Burgundy &amp; stone indoor-outdoor flow</div>
                 </div>
@@ -633,10 +656,10 @@
                   <strong class="text-white font-medium">Mohamed Samy</strong> is a civil engineer and interior designer based in Egypt, blending structural precision with artistic vision to craft spaces that balance durability, comfort, and timeless visual impact.
                 </p>
                 <p>
-                  Backed by hands-on civil engineering site execution, his studio delivers residential apartments, duplexes, villas, and commercial hospitality projects across <span class="text-white">Beni Suef, Sheikh Zayed, and Cairo</span>.
+                  Backed by hands-on civil engineering site execution, his studio brings more than a decade of finishing and décor experience (as featured in Al Gomhoria Al Youm) to residential apartments, duplexes, villas, and commercial hospitality projects across <span class="text-white">Beni Suef, Sheikh Zayed, and Cairo</span>.
                 </p>
                 <p>
-                  Standout completed works include <span class="text-white">After 8 Cafe, BUNO Cafe, Pyramids Heights Compound – Sheikh Zayed, Zahraa El-Maadi – Al Yasmeen, Makkah Compound, and El Nile Corniche – Beni Suef</span>.
+                  Standout completed works include <span class="text-white">After 8 Cafe, BUNO Cafe, a 60 m² raw-to-turnkey apartment in Mokattam delivered in 45 days, Pyramids Heights Compound – Sheikh Zayed, Zahraa El-Maadi – Al Yasmeen, Makkah Compound, and El Nile Corniche – Beni Suef</span>.
                 </p>
                 <p>
                   Every project is managed end-to-end — from raw brick inspection, MEP rough-ins, and plastering through lighting calibration, stone and timber joinery, and millimetre-checked handover.
@@ -681,7 +704,7 @@
                 Message the team directly on WhatsApp with your project type, city, and current unit stage (raw brick, semi-finished, or commercial fit-out) for an engineering consultation.
               </p>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <a href="https://wa.me/201159308831?text=Hello%20Mohamed%20Samy%20Works%2C%20I%20have%20a%20Residential%20project%20(Apartment%20%2F%20Villa)%20and%20want%20to%20inquire%20about%20design%20%26%20finishing." target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/201159308831?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%B4%D9%82%D8%A9%20%2F%20%D9%81%D9%8A%D9%84%D8%A7%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D9%88%D8%A7%D9%84%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8.%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%AD%D8%A9%20%D8%AA%D9%82%D8%B1%D9%8A%D8%A8%D8%A7%D9%8B%3A%20%0A%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A%D8%A9%20%28%D8%B7%D9%88%D8%A8%20%D8%A3%D8%AD%D9%85%D8%B1%20%2F%20%D9%86%D8%B5%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8%20%2F%20%D8%AA%D8%AC%D8%AF%D9%8A%D8%AF%29%3A%20" target="_blank" rel="noopener noreferrer"
                    class="flex items-center justify-between p-4 rounded-2xl bg-crimson text-white hover:bg-white hover:text-black transition-all duration-300 shadow-lg group">
                   <div>
                     <div class="text-[10px] uppercase tracking-[0.2em] opacity-85">Residential</div>
@@ -689,7 +712,7 @@
                   </div>
                   <i data-lucide="message-circle" class="w-5 h-5 shrink-0"></i>
                 </a>
-                <a href="https://wa.me/201159308831?text=Hello%20Mohamed%20Samy%20Works%2C%20I%20have%20a%20Commercial%20project%20(Cafe%20%2F%20Store%20%2F%20Office)%20and%20want%20to%20inquire." target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/201159308831?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%20%28%D9%83%D8%A7%D9%81%D9%8A%D9%87%20%2F%20%D9%85%D8%AD%D9%84%20%2F%20%D9%85%D9%83%D8%AA%D8%A8%29%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%D9%88%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0.%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%AD%D8%A9%20%D8%AA%D9%82%D8%B1%D9%8A%D8%A8%D8%A7%D9%8B%3A%20" target="_blank" rel="noopener noreferrer"
                    class="flex items-center justify-between p-4 rounded-2xl bg-white/[0.06] border border-white/15 text-white hover:border-crimson hover:bg-crimson transition-all duration-300 group">
                   <div>
                     <div class="text-[10px] uppercase tracking-[0.2em] text-crimson group-hover:text-white">Commercial</div>
@@ -794,7 +817,7 @@
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
             <span>TikTok</span>
           </a>
-          <a href="https://wa.me/201159308831?text=Hello%20Mohamed%20Samy%20Works%2C%20I%20would%20like%20to%20start%20a%20project%20consultation." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
+          <a href="https://wa.me/201159308831?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%B4%D8%BA%D9%84%D9%83%D9%85%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20Mohamed%20Samy%20Works%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8.%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%28%D8%B4%D9%82%D8%A9%20%2F%20%D9%81%D9%8A%D9%84%D8%A7%20%2F%20%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%29%3A%20%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A%D8%A9%20%28%D8%B7%D9%88%D8%A8%20%D8%A3%D8%AD%D9%85%D8%B1%20%2F%20%D9%86%D8%B5%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8%20%2F%20%D8%AA%D8%AC%D8%AF%D9%8A%D8%AF%29%3A%20" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"
              class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-crimson text-white text-xs font-bold tracking-[0.16em] uppercase hover:bg-white hover:text-black transition-all duration-300 shadow-lg">
             <i data-lucide="message-circle" class="w-4 h-4"></i>
             <span>WhatsApp</span>
@@ -803,13 +826,25 @@
 
         <div class="pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
           <div>© 2026 Mohamed Samy Works — All Rights Reserved</div>
-          <div class="tracking-wider uppercase">
-            Powered By <a href="https://begamal.pages.dev/" target="_blank" rel="noopener noreferrer" class="text-white font-semibold hover:text-crimson underline decoration-white/30 hover:decoration-crimson underline-offset-4 transition-colors">Belal Gamal</a>
+          <div class="ft-sign">
+            <a href="https://begamal.pages.dev/" target="_blank" rel="noopener" class="ft-sign__link" aria-label="Belal Gamal | Creative Director &amp; AI Production Architect">
+              <span class="ft-sign__word">Transcending</span>
+              <span class="ft-sign__name footer-signature">Belal Gamal</span>
+            </a>
           </div>
         </div>
       </div>
     </footer>
   </main>
+
+
+  <!-- Mobile quick WhatsApp (appears after the hero, hides while the gallery is open) -->
+  <a id="wa-fab" href="https://wa.me/201159308831?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%B4%D8%BA%D9%84%D9%83%D9%85%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20Mohamed%20Samy%20Works%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8.%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%28%D8%B4%D9%82%D8%A9%20%2F%20%D9%81%D9%8A%D9%84%D8%A7%20%2F%20%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%29%3A%20%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A%D8%A9%20%28%D8%B7%D9%88%D8%A8%20%D8%A3%D8%AD%D9%85%D8%B1%20%2F%20%D9%86%D8%B5%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8%20%2F%20%D8%AA%D8%AC%D8%AF%D9%8A%D8%AF%29%3A%20" target="_blank" rel="noopener"
+     aria-label="Consult on WhatsApp"
+     class="md:hidden fixed bottom-4 right-4 z-40 inline-flex items-center gap-2 px-5 py-3 rounded-full bg-crimson text-white text-xs font-semibold uppercase tracking-wider shadow-2xl transition-all duration-300 translate-y-24 opacity-0 pointer-events-none">
+    <i data-lucide="message-circle" class="w-4 h-4"></i>
+    <span>WhatsApp</span>
+  </a>
 
   <noscript>
     <div class="max-w-4xl mx-auto p-6 text-neutral-200 text-sm">
@@ -937,63 +972,9 @@
       // ==========================================
       const PROJECTS = [
         {
-          id: 'sage-peach-kitchen',
-          num: '01',
-          title: 'Sage & Peach Kitchen',
-          category: 'Residential',
-          city: 'Egypt',
-          style: 'Contemporary Kitchen',
-          scope: 'Custom Kitchen Fit-Out · with Kabine Woodworks',
-          highlights: ['Two-Tone Cabinetry', 'Built-In Appliance Column', 'Integrated Bench Seating'],
-          realPhotos: true,
-          shortDesc: 'One of the studio’s latest completed kitchens (January 2026), built with Kabine Woodworks: sage-green and soft peach cabinetry, granite worktops, warm under-cabinet light and a built-in corner bench.',
-          overview: 'A recently delivered residential kitchen, published January 2026 and executed with joinery partner Kabine Woodworks. A U-shaped layout combines a tall built-in appliance column, a granite worktop and backsplash, and an upholstered dining nook.',
-          concept: 'A calm two-tone palette: matte sage-green base and tall units against soft peach upper cabinets, with vertical slatted cladding framing the window and warm LED strips lifting the worktop.',
-          materials: 'Matte sage-green and peach cabinetry, speckled granite worktops and backsplash, built-in oven, microwave and gas hob, stainless undermount sink, under-cabinet and shelf LED strips, recessed downlights, and marble-look porcelain flooring.',
-          challenge: 'Fitting full-height appliance storage, continuous counter space and a sit-down bench into one kitchen while keeping circulation clear around the U-shaped plan.',
-          image: '/assets/v2/proj_kitchen_1.webp',
-          gallery: [
-            { src: '/assets/v2/proj_kitchen_1.webp', label: 'View 01' },
-            { src: '/assets/v2/proj_kitchen_2.webp', label: 'View 02' },
-            { src: '/assets/v2/proj_kitchen_3.webp', label: 'View 03' },
-            { src: '/assets/v2/proj_kitchen_4.webp', label: 'View 04' },
-            { src: '/assets/v2/proj_kitchen_5.webp', label: 'View 05' },
-            { src: '/assets/v2/proj_kitchen_6.webp', label: 'View 06' },
-            { src: '/assets/v2/proj_kitchen_7.webp', label: 'View 07' }
-          ],
-          accent: '#9CAF88'
-        },
-        {
-          id: 'mokattam-cairo',
-          num: '02',
-          title: 'Mokattam Apartment',
-          category: 'Residential',
-          city: 'Cairo',
-          style: 'Compact Modern',
-          scope: 'Raw Brick to Turnkey · 60 m² · 45 Days',
-          highlights: ['60 m² Full Unit', 'Delivered in 45 Days', 'Raw Brick to Handover'],
-          realPhotos: true,
-          shortDesc: 'A 60 m² apartment in Mokattam, Cairo, taken from raw brick and plaster to a fully finished home in 45 days, with every decision planned within the client’s budget.',
-          overview: 'A complete residential unit delivered in the Mokattam district, Cairo (December 2025). The apartment started as raw brick, plaster and an empty slab, and was handed over 45 days later as a finished, livable home.',
-          concept: 'Making 60 m² feel generous: light neutral walls, bright porcelain floors, wood-tone flooring in the bedrooms and indirect cove lighting along the corridor keep the compact plan open and calm.',
-          materials: 'Bright glossy porcelain flooring in living areas, wood-look flooring in bedrooms, dark-finish interior doors, recessed spotlights and linear LED coves in gypsum ceilings, and fully prepared electrical and plumbing points.',
-          challenge: 'Delivering a complete raw-to-turnkey finish in 45 days on a compact 60 m² plan, with every decision calculated against the client’s budget and no unnecessary add-ons.',
-          image: '/assets/v2/proj_mokattam_1.webp',
-          gallery: [
-            { src: '/assets/v2/proj_mokattam_1.webp', label: 'View 01' },
-            { src: '/assets/v2/proj_mokattam_2.webp', label: 'View 02' },
-            { src: '/assets/v2/proj_mokattam_3.webp', label: 'View 03' },
-            { src: '/assets/v2/proj_mokattam_4.webp', label: 'View 04' },
-            { src: '/assets/v2/proj_mokattam_5.webp', label: 'View 05' },
-            { src: '/assets/v2/proj_mokattam_6.webp', label: 'View 06' },
-            { src: '/assets/v2/proj_mokattam_7.webp', label: 'Before — Raw Brick' },
-            { src: '/assets/v2/proj_mokattam_8.webp', label: 'Before — Raw Brick' }
-          ],
-          accent: '#CBB89D'
-        },
-        {
           id: 'after-8-cafe',
-          num: '03',
+          num: '01',
+          year: '2026',
           title: 'After 8 Cafe',
           category: 'Commercial',
           city: 'Beni Suef',
@@ -1032,8 +1013,133 @@
           accent: '#8A1538'
         },
         {
-          id: 'pyramids-heights',
+          id: 'sage-peach-kitchen',
+          num: '02',
+          year: '2026',
+          title: 'Sage & Peach Kitchen',
+          category: 'Residential',
+          city: 'Egypt',
+          style: 'Contemporary Kitchen',
+          scope: 'Custom Kitchen Fit-Out · with Kabine Woodworks',
+          highlights: ['Two-Tone Cabinetry', 'Built-In Appliance Column', 'Integrated Bench Seating'],
+          realPhotos: true,
+          shortDesc: 'One of the studio’s latest completed kitchens (January 2026), built with Kabine Woodworks: sage-green and soft peach cabinetry, granite worktops, warm under-cabinet light and a built-in corner bench.',
+          overview: 'A recently delivered residential kitchen, published January 2026 and executed with joinery partner Kabine Woodworks. A U-shaped layout combines a tall built-in appliance column, a granite worktop and backsplash, and an upholstered dining nook.',
+          concept: 'A calm two-tone palette: matte sage-green base and tall units against soft peach upper cabinets, with vertical slatted cladding framing the window and warm LED strips lifting the worktop.',
+          materials: 'Matte sage-green and peach cabinetry, speckled granite worktops and backsplash, built-in oven, microwave and gas hob, stainless undermount sink, under-cabinet and shelf LED strips, recessed downlights, and marble-look porcelain flooring.',
+          challenge: 'Fitting full-height appliance storage, continuous counter space and a sit-down bench into one kitchen while keeping circulation clear around the U-shaped plan.',
+          image: '/assets/v2/proj_kitchen_1.webp',
+          gallery: [
+            { src: '/assets/v2/proj_kitchen_1.webp', label: 'View 01' },
+            { src: '/assets/v2/proj_kitchen_2.webp', label: 'View 02' },
+            { src: '/assets/v2/proj_kitchen_3.webp', label: 'View 03' },
+            { src: '/assets/v2/proj_kitchen_4.webp', label: 'View 04' },
+            { src: '/assets/v2/proj_kitchen_5.webp', label: 'View 05' },
+            { src: '/assets/v2/proj_kitchen_6.webp', label: 'View 06' },
+            { src: '/assets/v2/proj_kitchen_7.webp', label: 'View 07' }
+          ],
+          accent: '#9CAF88'
+        },
+        {
+          id: 'mokattam-cairo',
+          num: '03',
+          year: '2025',
+          title: 'Mokattam Apartment',
+          category: 'Residential',
+          city: 'Cairo',
+          style: 'Compact Modern',
+          scope: 'Raw Brick to Turnkey · 60 m² · 45 Days',
+          highlights: ['60 m² Full Unit', 'Delivered in 45 Days', 'Raw Brick to Handover'],
+          realPhotos: true,
+          shortDesc: 'A 60 m² apartment in Mokattam, Cairo, taken from raw brick and plaster to a fully finished home in 45 days, with every decision planned within the client’s budget.',
+          overview: 'A complete residential unit delivered in the Mokattam district, Cairo (December 2025). The apartment started as raw brick, plaster and an empty slab, and was handed over 45 days later as a finished, livable home.',
+          concept: 'Making 60 m² feel generous: light neutral walls, bright porcelain floors, wood-tone flooring in the bedrooms and indirect cove lighting along the corridor keep the compact plan open and calm.',
+          materials: 'Bright glossy porcelain flooring in living areas, wood-look flooring in bedrooms, dark-finish interior doors, recessed spotlights and linear LED coves in gypsum ceilings, and fully prepared electrical and plumbing points.',
+          challenge: 'Delivering a complete raw-to-turnkey finish in 45 days on a compact 60 m² plan, with every decision calculated against the client’s budget and no unnecessary add-ons.',
+          image: '/assets/v2/proj_mokattam_1.webp',
+          gallery: [
+            { src: '/assets/v2/proj_mokattam_1.webp', label: 'View 01' },
+            { src: '/assets/v2/proj_mokattam_2.webp', label: 'View 02' },
+            { src: '/assets/v2/proj_mokattam_3.webp', label: 'View 03' },
+            { src: '/assets/v2/proj_mokattam_4.webp', label: 'View 04' },
+            { src: '/assets/v2/proj_mokattam_5.webp', label: 'View 05' },
+            { src: '/assets/v2/proj_mokattam_6.webp', label: 'View 06' },
+            { src: '/assets/v2/proj_mokattam_7.webp', label: 'Before — Raw Brick' },
+            { src: '/assets/v2/proj_mokattam_8.webp', label: 'Before — Raw Brick' }
+          ],
+          accent: '#CBB89D'
+        },
+        {
+          id: 'buno-cafe',
           num: '04',
+          year: '2025',
+          title: 'BUNO Cafe',
+          category: 'Commercial',
+          city: 'Beni Suef',
+          style: 'Modern Industrial',
+          scope: 'Exterior Storefront & Interior Fit-Out',
+          highlights: ['Sculptural White Canopy', 'Outdoor Terrace', 'Concrete & Timber Bar'],
+          realPhotos: true,
+          shortDesc: 'Signature Beni Suef café uniting a curved white sculptural facade canopy and outdoor bistro terrace with warm timber, raw concrete, and matte-black metalwork inside.',
+          overview: 'BUNO Café pairs street-level storefront presence with an inviting modern industrial interior in Beni Suef — spanning both the curved exterior facade with lush landscaped patio seating and the complete indoor bar and lounge fit-out.',
+          concept: 'Balanced warmth inside an urban industrial shell: sculpted white facade geometry announces the brand on the street while soft ambient spots and warm wooden tones balance concrete surfaces inside.',
+          materials: 'Curved facade canopy with 3D matte-black BUNO channel lettering, full-height storefront glass, raw concrete wall finishes, warm wood paneling, matte-black steel framing, and custom bar & bistro furniture.',
+          challenge: 'Transforming a ground-floor residential building frontage into an unmistakable hospitality landmark that feels cozy rather than cold and transitions naturally between indoor and patio seating.',
+          image: '/assets/v2/proj_buno_2.webp',
+          gallery: [
+            { src: '/assets/v2/proj_buno_2.webp', label: 'View 01' },
+            { src: '/assets/v2/proj_buno_1.webp', label: 'View 02' },
+            { src: '/assets/v2/proj_buno_3.webp', label: 'View 03' },
+            { src: '/assets/v2/proj_buno_4.webp', label: 'View 04' },
+            { src: '/assets/v2/proj_buno_5.webp', label: 'View 05' },
+            { src: '/assets/v2/p_buno_06.webp', label: 'View 06' },
+            { src: '/assets/v2/p_buno_07.webp', label: 'View 07' },
+            { src: '/assets/v2/p_buno_08.webp', label: 'View 08' },
+            { src: '/assets/v2/p_buno_09.webp', label: 'View 09' },
+            { src: '/assets/v2/p_buno_10.webp', label: 'View 10' },
+            { src: '/assets/v2/p_buno_12.webp', label: 'View 11' },
+            { src: '/assets/v2/p_buno_13.webp', label: 'View 12' },
+            { src: '/assets/v2/p_buno_14.webp', label: 'View 13' },
+            { src: '/assets/v2/p_buno_15.webp', label: 'View 14' },
+            { src: '/assets/v2/p_buno_16.webp', label: 'View 15' }
+          ],
+          accent: '#B57B4C'
+        },
+        {
+          id: 'al-rawda-district',
+          num: '05',
+          year: '2025',
+          title: 'Al Rawda District – Beni Suef',
+          category: 'Residential',
+          city: 'Beni Suef',
+          style: 'Clean Modern',
+          scope: 'Complete Apartment Finishing',
+          highlights: ['Sage Fluted Flush Doors', 'Timber Slat Ceiling', 'Matte-Black Hardware'],
+          realPhotos: true,
+          shortDesc: 'Crisp contemporary apartment in Al Rawda featuring seamless timber slat wall-to-ceiling detailing, muted sage fluted corridor doors, matte-black handles, and calm perimeter lighting.',
+          overview: 'Located in the heart of Beni Suef’s Al Rawda district, this apartment exemplifies restrained modern finishing — pairing precision-aligned fluted doors, wood slat surfaces, and clean indirect light.',
+          concept: 'Focus on architectural lines and tonal warmth rather than excess ornament: wrapping warm timber slats smoothly from wall to ceiling while using muted sage-green corridor doors as a refined focal rhythm.',
+          materials: 'Continuous vertical timber wall & ceiling cladding with black cylindrical downlights, custom sage-green fluted flush doors with matte-black handles, marble-look corridor porcelain, and warm gypsum coves.',
+          challenge: 'Achieving a minimal modern language that feels warm and tailored rather than sterile, relying on clean carpentry joints and balanced warm indirect light.',
+          image: '/assets/v2/proj_rawda_1.webp',
+          gallery: [
+            { src: '/assets/v2/proj_rawda_1.webp', label: 'View 01' },
+            { src: '/assets/v2/proj_rawda_2.webp', label: 'View 02' },
+            { src: '/assets/v2/proj_rawda_3.webp', label: 'View 03' },
+            { src: '/assets/v2/proj_rawda_4.webp', label: 'View 04' },
+            { src: '/assets/v2/p_rawda_05.webp', label: 'View 05' },
+            { src: '/assets/v2/p_rawda_07.webp', label: 'View 06' },
+            { src: '/assets/v2/p_rawda_08.webp', label: 'View 07' },
+            { src: '/assets/v2/p_rawda_09.webp', label: 'View 08' },
+            { src: '/assets/v2/p_rawda_10.webp', label: 'View 09' },
+            { src: '/assets/v2/p_rawda_11.webp', label: 'View 10' }
+          ],
+          accent: '#8E9AAF'
+        },
+        {
+          id: 'pyramids-heights',
+          num: '06',
+          year: '2024',
           title: 'Pyramids Heights Compound',
           category: 'Residential',
           city: 'Sheikh Zayed',
@@ -1075,43 +1181,74 @@
           accent: '#C9A97E'
         },
         {
-          id: 'buno-cafe',
-          num: '05',
-          title: 'BUNO Cafe',
-          category: 'Commercial',
-          city: 'Beni Suef',
-          style: 'Modern Industrial',
-          scope: 'Exterior Storefront & Interior Fit-Out',
-          highlights: ['Sculptural White Canopy', 'Outdoor Terrace', 'Concrete & Timber Bar'],
+          id: 'al-narges-zayed',
+          num: '07',
+          year: '2024',
+          title: 'Al-Narges Compound',
+          category: 'Residential',
+          city: 'Sheikh Zayed',
+          style: 'Warm Minimalism',
+          scope: 'Residential Interior Execution',
+          highlights: ['Wood-Veneer Flush Doors', 'Globe Wall Sconces', 'Linear LED Corridor'],
           realPhotos: true,
-          shortDesc: 'Signature Beni Suef café uniting a curved white sculptural facade canopy and outdoor bistro terrace with warm timber, raw concrete, and matte-black metalwork inside.',
-          overview: 'BUNO Café pairs street-level storefront presence with an inviting modern industrial interior in Beni Suef — spanning both the curved exterior facade with lush landscaped patio seating and the complete indoor bar and lounge fit-out.',
-          concept: 'Balanced warmth inside an urban industrial shell: sculpted white facade geometry announces the brand on the street while soft ambient spots and warm wooden tones balance concrete surfaces inside.',
-          materials: 'Curved facade canopy with 3D matte-black BUNO channel lettering, full-height storefront glass, raw concrete wall finishes, warm wood paneling, matte-black steel framing, and custom bar & bistro furniture.',
-          challenge: 'Transforming a ground-floor residential building frontage into an unmistakable hospitality landmark that feels cozy rather than cold and transitions naturally between indoor and patio seating.',
-          image: '/assets/v2/proj_buno_2.webp',
+          shortDesc: 'Sheikh Zayed apartment defined by walnut-veneer doors, vertical slatted timber panels with globe sconces, linear recessed ceiling lighting, and backlit circular bath mirrors.',
+          overview: 'A residential interior project in Al-Narges Compound, Sheikh Zayed, crafted around crisp corridor perspectives, warm wood-veneer joinery, and clean porcelain & stone surfaces.',
+          concept: 'Warm minimalism guided by axis and light: an uninterrupted linear LED ceiling strip draws the eye down the hall alongside ribbed walnut panels and balanced globe sconces.',
+          materials: 'Natural wood-veneer flush doors, vertical dark-walnut slat accents, matte-black globe wall sconces, recessed continuous ceiling LED channel, grey marble-veined bath porcelain, and circular backlit vanity mirrors.',
+          challenge: 'Giving long circulation corridors and private rooms strong architectural character without crowding the floorplan.',
+          image: '/assets/v2/p_narges_06.webp',
           gallery: [
-            { src: '/assets/v2/proj_buno_2.webp', label: 'View 01' },
-            { src: '/assets/v2/proj_buno_1.webp', label: 'View 02' },
-            { src: '/assets/v2/proj_buno_3.webp', label: 'View 03' },
-            { src: '/assets/v2/proj_buno_4.webp', label: 'View 04' },
-            { src: '/assets/v2/proj_buno_5.webp', label: 'View 05' },
-            { src: '/assets/v2/p_buno_06.webp', label: 'View 06' },
-            { src: '/assets/v2/p_buno_07.webp', label: 'View 07' },
-            { src: '/assets/v2/p_buno_08.webp', label: 'View 08' },
-            { src: '/assets/v2/p_buno_09.webp', label: 'View 09' },
-            { src: '/assets/v2/p_buno_10.webp', label: 'View 10' },
-            { src: '/assets/v2/p_buno_12.webp', label: 'View 11' },
-            { src: '/assets/v2/p_buno_13.webp', label: 'View 12' },
-            { src: '/assets/v2/p_buno_14.webp', label: 'View 13' },
-            { src: '/assets/v2/p_buno_15.webp', label: 'View 14' },
-            { src: '/assets/v2/p_buno_16.webp', label: 'View 15' }
+            { src: '/assets/v2/p_narges_06.webp', label: 'View 01' },
+            { src: '/assets/v2/proj_narges_1.webp', label: 'View 02' },
+            { src: '/assets/v2/proj_narges_2.webp', label: 'View 03' },
+            { src: '/assets/v2/proj_narges_3.webp', label: 'View 04' },
+            { src: '/assets/v2/proj_narges_4.webp', label: 'View 05' },
+            { src: '/assets/v2/p_narges_05.webp', label: 'View 06' },
+            { src: '/assets/v2/p_narges_07.webp', label: 'View 07' },
+            { src: '/assets/v2/p_narges_08.webp', label: 'View 08' },
+            { src: '/assets/v2/p_narges_10.webp', label: 'View 09' },
+            { src: '/assets/v2/p_narges_11.webp', label: 'View 10' }
           ],
-          accent: '#B57B4C'
+          accent: '#D4A373'
+        },
+        {
+          id: 'makkah-compound',
+          num: '08',
+          year: '2023',
+          title: 'Makkah Compound – East Nile',
+          category: 'Residential',
+          city: 'Beni Suef',
+          style: 'Open Modern Luxury',
+          scope: 'Full Interior Design & Finishing',
+          highlights: ['Wainscoting & Fluting', 'Forest-Green Accent', 'Warm Cove Lighting'],
+          realPhotos: true,
+          shortDesc: 'Open-plan Beni Suef compound residence pairing classic moulded wall panels, deep forest-green fluted accents, continuous marble-veined porcelain, and warm perimeter coves.',
+          overview: 'Executed inside Makkah Compound – East Nile, Beni Suef, this residence pairs open circulation and bright marble-toned floors with disciplined classical wall mouldings and rich forest-green architectural accents.',
+          concept: 'Continuous visual flow across the reception and corridor, punctuated by custom panel mouldings, fluted vertical textures, deep green contrast zones, and indirect warm ceiling illumination.',
+          materials: 'Large-format marble-veined porcelain flooring, sculpted wall mouldings & lower fluted wainscoting, forest-green fluted door and pillar trim, concealed magnetic tracks, and warm LED cove ceilings.',
+          challenge: 'Uniting classic wall detailing and modern minimalist clarity inside one airy footprint so the apartment feels expansive, bright, and welcoming for family gatherings.',
+          image: '/assets/v2/p_makkah_12.webp',
+          gallery: [
+            { src: '/assets/v2/p_makkah_12.webp', label: 'View 01' },
+            { src: '/assets/v2/proj_makkah_1.webp', label: 'View 02' },
+            { src: '/assets/v2/proj_makkah_2.webp', label: 'View 03' },
+            { src: '/assets/v2/proj_makkah_3.webp', label: 'View 04' },
+            { src: '/assets/v2/proj_makkah_4.webp', label: 'View 05' },
+            { src: '/assets/v2/proj_makkah_5.webp', label: 'View 06' },
+            { src: '/assets/v2/p_makkah_06.webp', label: 'View 07' },
+            { src: '/assets/v2/p_makkah_07.webp', label: 'View 08' },
+            { src: '/assets/v2/p_makkah_08.webp', label: 'View 09' },
+            { src: '/assets/v2/p_makkah_09.webp', label: 'View 10' },
+            { src: '/assets/v2/p_makkah_10.webp', label: 'View 11' },
+            { src: '/assets/v2/p_makkah_11.webp', label: 'View 12' },
+            { src: '/assets/v2/p_makkah_13.webp', label: 'View 13' }
+          ],
+          accent: '#2D5A4C'
         },
         {
           id: 'zahraa-el-maadi',
-          num: '06',
+          num: '09',
+          year: '2023',
           title: 'Zahraa El-Maadi – Al Yasmeen',
           category: 'Residential',
           city: 'Cairo',
@@ -1145,7 +1282,8 @@
         },
         {
           id: 'east-nile-first',
-          num: '07',
+          num: '10',
+          year: '2023',
           title: 'East Nile – First District',
           category: 'Residential',
           city: 'Beni Suef',
@@ -1191,101 +1329,9 @@
           accent: '#9C897B'
         },
         {
-          id: 'makkah-compound',
-          num: '08',
-          title: 'Makkah Compound – East Nile',
-          category: 'Residential',
-          city: 'Beni Suef',
-          style: 'Open Modern Luxury',
-          scope: 'Full Interior Design & Finishing',
-          highlights: ['Wainscoting & Fluting', 'Forest-Green Accent', 'Warm Cove Lighting'],
-          realPhotos: true,
-          shortDesc: 'Open-plan Beni Suef compound residence pairing classic moulded wall panels, deep forest-green fluted accents, continuous marble-veined porcelain, and warm perimeter coves.',
-          overview: 'Executed inside Makkah Compound – East Nile, Beni Suef, this residence pairs open circulation and bright marble-toned floors with disciplined classical wall mouldings and rich forest-green architectural accents.',
-          concept: 'Continuous visual flow across the reception and corridor, punctuated by custom panel mouldings, fluted vertical textures, deep green contrast zones, and indirect warm ceiling illumination.',
-          materials: 'Large-format marble-veined porcelain flooring, sculpted wall mouldings & lower fluted wainscoting, forest-green fluted door and pillar trim, concealed magnetic tracks, and warm LED cove ceilings.',
-          challenge: 'Uniting classic wall detailing and modern minimalist clarity inside one airy footprint so the apartment feels expansive, bright, and welcoming for family gatherings.',
-          image: '/assets/v2/p_makkah_12.webp',
-          gallery: [
-            { src: '/assets/v2/p_makkah_12.webp', label: 'View 01' },
-            { src: '/assets/v2/proj_makkah_1.webp', label: 'View 02' },
-            { src: '/assets/v2/proj_makkah_2.webp', label: 'View 03' },
-            { src: '/assets/v2/proj_makkah_3.webp', label: 'View 04' },
-            { src: '/assets/v2/proj_makkah_4.webp', label: 'View 05' },
-            { src: '/assets/v2/proj_makkah_5.webp', label: 'View 06' },
-            { src: '/assets/v2/p_makkah_06.webp', label: 'View 07' },
-            { src: '/assets/v2/p_makkah_07.webp', label: 'View 08' },
-            { src: '/assets/v2/p_makkah_08.webp', label: 'View 09' },
-            { src: '/assets/v2/p_makkah_09.webp', label: 'View 10' },
-            { src: '/assets/v2/p_makkah_10.webp', label: 'View 11' },
-            { src: '/assets/v2/p_makkah_11.webp', label: 'View 12' },
-            { src: '/assets/v2/p_makkah_13.webp', label: 'View 13' }
-          ],
-          accent: '#2D5A4C'
-        },
-        {
-          id: 'al-rawda-district',
-          num: '09',
-          title: 'Al Rawda District – Beni Suef',
-          category: 'Residential',
-          city: 'Beni Suef',
-          style: 'Clean Modern',
-          scope: 'Complete Apartment Finishing',
-          highlights: ['Sage Fluted Flush Doors', 'Timber Slat Ceiling', 'Matte-Black Hardware'],
-          realPhotos: true,
-          shortDesc: 'Crisp contemporary apartment in Al Rawda featuring seamless timber slat wall-to-ceiling detailing, muted sage fluted corridor doors, matte-black handles, and calm perimeter lighting.',
-          overview: 'Located in the heart of Beni Suef’s Al Rawda district, this apartment exemplifies restrained modern finishing — pairing precision-aligned fluted doors, wood slat surfaces, and clean indirect light.',
-          concept: 'Focus on architectural lines and tonal warmth rather than excess ornament: wrapping warm timber slats smoothly from wall to ceiling while using muted sage-green corridor doors as a refined focal rhythm.',
-          materials: 'Continuous vertical timber wall & ceiling cladding with black cylindrical downlights, custom sage-green fluted flush doors with matte-black handles, marble-look corridor porcelain, and warm gypsum coves.',
-          challenge: 'Achieving a minimal modern language that feels warm and tailored rather than sterile, relying on clean carpentry joints and balanced warm indirect light.',
-          image: '/assets/v2/proj_rawda_1.webp',
-          gallery: [
-            { src: '/assets/v2/proj_rawda_1.webp', label: 'View 01' },
-            { src: '/assets/v2/proj_rawda_2.webp', label: 'View 02' },
-            { src: '/assets/v2/proj_rawda_3.webp', label: 'View 03' },
-            { src: '/assets/v2/proj_rawda_4.webp', label: 'View 04' },
-            { src: '/assets/v2/p_rawda_05.webp', label: 'View 05' },
-            { src: '/assets/v2/p_rawda_07.webp', label: 'View 06' },
-            { src: '/assets/v2/p_rawda_08.webp', label: 'View 07' },
-            { src: '/assets/v2/p_rawda_09.webp', label: 'View 08' },
-            { src: '/assets/v2/p_rawda_10.webp', label: 'View 09' },
-            { src: '/assets/v2/p_rawda_11.webp', label: 'View 10' }
-          ],
-          accent: '#8E9AAF'
-        },
-        {
-          id: 'al-narges-zayed',
-          num: '10',
-          title: 'Al-Narges Compound',
-          category: 'Residential',
-          city: 'Sheikh Zayed',
-          style: 'Warm Minimalism',
-          scope: 'Residential Interior Execution',
-          highlights: ['Wood-Veneer Flush Doors', 'Globe Wall Sconces', 'Linear LED Corridor'],
-          realPhotos: true,
-          shortDesc: 'Sheikh Zayed apartment defined by walnut-veneer doors, vertical slatted timber panels with globe sconces, linear recessed ceiling lighting, and backlit circular bath mirrors.',
-          overview: 'A residential interior project in Al-Narges Compound, Sheikh Zayed, crafted around crisp corridor perspectives, warm wood-veneer joinery, and clean porcelain & stone surfaces.',
-          concept: 'Warm minimalism guided by axis and light: an uninterrupted linear LED ceiling strip draws the eye down the hall alongside ribbed walnut panels and balanced globe sconces.',
-          materials: 'Natural wood-veneer flush doors, vertical dark-walnut slat accents, matte-black globe wall sconces, recessed continuous ceiling LED channel, grey marble-veined bath porcelain, and circular backlit vanity mirrors.',
-          challenge: 'Giving long circulation corridors and private rooms strong architectural character without crowding the floorplan.',
-          image: '/assets/v2/p_narges_06.webp',
-          gallery: [
-            { src: '/assets/v2/p_narges_06.webp', label: 'View 01' },
-            { src: '/assets/v2/proj_narges_1.webp', label: 'View 02' },
-            { src: '/assets/v2/proj_narges_2.webp', label: 'View 03' },
-            { src: '/assets/v2/proj_narges_3.webp', label: 'View 04' },
-            { src: '/assets/v2/proj_narges_4.webp', label: 'View 05' },
-            { src: '/assets/v2/p_narges_05.webp', label: 'View 06' },
-            { src: '/assets/v2/p_narges_07.webp', label: 'View 07' },
-            { src: '/assets/v2/p_narges_08.webp', label: 'View 08' },
-            { src: '/assets/v2/p_narges_10.webp', label: 'View 09' },
-            { src: '/assets/v2/p_narges_11.webp', label: 'View 10' }
-          ],
-          accent: '#D4A373'
-        },
-        {
           id: 'kornish-beni-suef',
           num: '11',
+          year: '2022',
           title: 'Kornish Beni Suef',
           category: 'Residential',
           city: 'Beni Suef',
@@ -1456,7 +1502,7 @@
                   ${proj.category} · ${proj.city}
                 </span>
                 <span class="text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/75 border border-white/10 text-neutral-300">
-                  ${proj.style}
+                  ${proj.year}
                 </span>
               </div>
             </div>
@@ -1790,7 +1836,9 @@
         modalHighlights.innerHTML = (proj.highlights || []).map(h =>
           `<span class="text-[10px] px-2.5 py-0.5 rounded-full bg-white/[0.06] border border-white/10 text-neutral-300">${h}</span>`
         ).join('');
-        const msg = encodeURIComponent(`Hello Mohamed Samy Works, I saw "${proj.title}" (${proj.city}) and would like to inquire about a similar project.`);
+        const msg = encodeURIComponent(`السلام عليكم، شفت مشروع "${proj.title}" على موقعكم وعايز أستفسر عن تنفيذ حاجة زيه.
+المدينة: 
+المرحلة الحالية (طوب أحمر / نص تشطيب / تجديد): `);
         const waHref = `https://wa.me/201159308831?text=${msg}`;
         modalWaLink.href = waHref;
         modalWaLinkDrawer.href = waHref;
@@ -1917,6 +1965,27 @@
       document.querySelectorAll('.rail-btn').forEach(btn => {
         btn.addEventListener('click', () => scrollToSection(btn.dataset.target));
       });
+
+
+      // Mobile quick-WhatsApp visibility: after the hero, not over the contact block, never over the gallery
+      (function () {
+        const fab = document.getElementById('wa-fab');
+        const modal = document.getElementById('project-modal');
+        const contact = document.querySelector('#about');
+        if (!fab) return;
+        const update = () => {
+          const pastHero = window.scrollY > window.innerHeight * 0.9;
+          const modalOpen = modal && !modal.classList.contains('hidden');
+          const nearEnd = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 700;
+          const show = pastHero && !modalOpen && !nearEnd;
+          fab.classList.toggle('opacity-0', !show);
+          fab.classList.toggle('translate-y-24', !show);
+          fab.classList.toggle('pointer-events-none', !show);
+        };
+        window.addEventListener('scroll', update, { passive: true });
+        if (modal) new MutationObserver(update).observe(modal, { attributes: true, attributeFilter: ['class'] });
+        update();
+      })();
 
       // Support legacy social/post deep links like /works/after-8-cafe, /works, /about, /campaigns
       function handleDeepLinkRoute() {
