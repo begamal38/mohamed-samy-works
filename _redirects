@@ -1,0 +1,9 @@
+# Deep links used in posts & ads: serve the single page (200 rewrite), the page script opens the right section/project
+/works/*   /   200
+/works     /   200
+/projects  /   200
+/campaigns /   200
+/about     /   200
+/contact   /   200
+/vision    /   200
+/method    /   200

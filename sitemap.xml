@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.mohamedsamyworks.com/</loc>
-    <lastmod>2026-11-26</lastmod>
+    <lastmod>2026-11-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/proj_kitchen_1.webp</image:loc>
+      <image:title>Sage &amp; Peach Kitchen — Egypt — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/proj_mokattam_1.webp</image:loc>
+      <image:title>Mokattam Apartment — Cairo — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/after8_real_1.webp</image:loc>
+      <image:title>After 8 Cafe — Beni Suef — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/p_pyramids_12.webp</image:loc>
+      <image:title>Pyramids Heights Compound — Sheikh Zayed — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/proj_buno_2.webp</image:loc>
+      <image:title>BUNO Cafe — Beni Suef — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/proj_maadi_4.webp</image:loc>
+      <image:title>Zahraa El-Maadi – Al Yasmeen — Cairo — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/proj_eastnile_3.webp</image:loc>
+      <image:title>East Nile – First District — Beni Suef — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/p_makkah_12.webp</image:loc>
+      <image:title>Makkah Compound – East Nile — Beni Suef — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/proj_rawda_1.webp</image:loc>
+      <image:title>Al Rawda District – Beni Suef — Beni Suef — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/p_narges_06.webp</image:loc>
+      <image:title>Al-Narges Compound — Sheikh Zayed — Mohamed Samy Works</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mohamedsamyworks.com/assets/v2/p_kornish_10.webp</image:loc>
+      <image:title>Kornish Beni Suef — Beni Suef — Mohamed Samy Works</image:title>
+    </image:image>
   </url>
 </urlset>
