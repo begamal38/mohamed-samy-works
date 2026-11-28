@@ -53,7 +53,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/v2/site.958fcf1d.css" />
+  <link rel="stylesheet" href="/assets/v2/site.679fedd0.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 
@@ -87,6 +87,7 @@
             { "@type": "City", "name": "Beni Suef" },
             { "@type": "City", "name": "Sheikh Zayed" },
             { "@type": "City", "name": "Cairo" },
+            { "@type": "City", "name": "New Cairo" },
             { "@type": "Country", "name": "Egypt" }
           ],
           "knowsAbout": [
@@ -130,7 +131,7 @@
               { "@type": "ListItem", "position": 4, "name": "BUNO Cafe — Beni Suef (Commercial)", "url": "https://www.mohamedsamyworks.com/works/buno-cafe" },
               { "@type": "ListItem", "position": 5, "name": "Al Rawda District — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/al-rawda-district" },
               { "@type": "ListItem", "position": 6, "name": "Pyramids Heights Compound — Sheikh Zayed (Residential)", "url": "https://www.mohamedsamyworks.com/works/pyramids-heights" },
-              { "@type": "ListItem", "position": 7, "name": "Al-Narges Compound — Sheikh Zayed (Residential)", "url": "https://www.mohamedsamyworks.com/works/al-narges-zayed" },
+              { "@type": "ListItem", "position": 7, "name": "Al-Narges Compound — New Cairo (Residential)", "url": "https://www.mohamedsamyworks.com/works/al-narges-new-cairo" },
               { "@type": "ListItem", "position": 8, "name": "Makkah Compound – East Nile — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/makkah-compound" },
               { "@type": "ListItem", "position": 9, "name": "Zahraa El-Maadi – Al Yasmeen — Cairo (Residential)", "url": "https://www.mohamedsamyworks.com/works/zahraa-el-maadi" },
               { "@type": "ListItem", "position": 10, "name": "East Nile – First District — Beni Suef (Residential)", "url": "https://www.mohamedsamyworks.com/works/east-nile-first" },
@@ -305,6 +306,15 @@
     #project-modal.hidden {
       display: none;
     }
+    /* Sub-page navigation: Works dropdown + active link */
+    .nav-link.is-active{color:#fff;box-shadow:inset 0 -2px 0 #FF1E1E;padding-bottom:4px}
+    .nav-dd{position:relative}
+    .nav-dd-menu{position:absolute;left:50%;top:100%;padding-top:18px;width:23rem;opacity:0;visibility:hidden;transform:translate(-50%,6px);transition:opacity .18s ease,transform .18s ease,visibility .18s}
+    .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{opacity:1;visibility:visible;transform:translate(-50%,0)}
+    .nav-dd.is-closed .nav-dd-menu{opacity:0;visibility:hidden}
+    .mobile-dd summary{list-style:none;cursor:pointer}
+    .mobile-dd summary::-webkit-details-marker{display:none}
+    .mobile-dd[open] .mobile-dd-chev{transform:rotate(180deg)}
   </style>
 </head>
 <body class="bg-obsidian text-white selection:bg-crimson selection:text-white">
@@ -317,17 +327,25 @@
   <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-obsidian/85 backdrop-blur-md border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <!-- Official Mohamed Samy Works Brand Mark -->
-      <a href="#home" class="flex items-center group focus:outline-none" aria-label="Mohamed Samy Works Home">
+      <a href="/" class="flex items-center group focus:outline-none" aria-label="Mohamed Samy Works Home">
         <img src="/assets/samy_logo_dark.webp" alt="Mohamed Samy Works" width="140" height="50" class="h-10 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform" />
       </a>
 
       <!-- Desktop Navigation -->
-      <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-8 text-xs font-medium tracking-[0.16em] uppercase text-neutral-300">
-        <a href="#home" class="nav-link hover:text-white transition-colors" data-section="home">Home</a>
-        <a href="#vision" class="nav-link hover:text-white transition-colors" data-section="vision">Method</a>
-        <a href="#works" class="nav-link hover:text-white transition-colors" data-section="works">Works (11)</a>
-        <a href="#campaigns" class="nav-link hover:text-white transition-colors" data-section="campaigns">Campaigns</a>
-        <a href="#about" class="nav-link hover:text-white transition-colors" data-section="about">About</a>
+      <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-7 text-xs font-medium tracking-[0.16em] uppercase text-neutral-300">
+        <a href="/" class="nav-link hover:text-white transition-colors" data-route="home">Home</a>
+        <div class="nav-dd">
+          <a href="/works" class="nav-link inline-flex items-center gap-1 hover:text-white transition-colors" data-route="works" aria-haspopup="true">Works (11) <i data-lucide="chevron-down" class="w-3 h-3"></i></a>
+          <div class="nav-dd-menu">
+            <div class="rounded-2xl bg-charcoal/95 backdrop-blur-xl border border-white/10 shadow-2xl p-2 normal-case tracking-normal">
+              <div id="nav-works-list" class="grid grid-cols-1 gap-0.5 max-h-[65vh] overflow-y-auto"></div>
+              <a href="/works" class="mt-1.5 flex items-center justify-between px-3 py-2.5 rounded-xl bg-crimson text-white text-[11px] font-semibold uppercase tracking-wider hover:bg-crimson-dark transition-colors">All 11 Projects <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+            </div>
+          </div>
+        </div>
+        <a href="/campaigns" class="nav-link hover:text-white transition-colors" data-route="campaigns">Campaigns</a>
+        <a href="/method" class="nav-link hover:text-white transition-colors" data-route="method">Method</a>
+        <a href="/about" class="nav-link hover:text-white transition-colors" data-route="about">About &amp; Contact</a>
       </nav>
 
       <!-- Actions -->
@@ -346,11 +364,16 @@
 
     <!-- Mobile Menu Drawer -->
     <div id="mobile-menu" class="hidden md:hidden bg-charcoal/95 backdrop-blur-xl border-b border-white/10 px-6 py-4 space-y-3">
-      <a href="#home" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Home</a>
-      <a href="#vision" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Method &amp; Vision</a>
-      <a href="#works" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Works (11 Projects)</a>
-      <a href="#campaigns" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Campaigns</a>
-      <a href="#about" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">About &amp; Process</a>
+      <a href="/" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Home</a>
+      <details class="mobile-dd">
+        <summary class="flex items-center justify-between text-sm uppercase tracking-widest text-neutral-200 py-1">
+          <span>Works (11 Projects)</span><i data-lucide="chevron-down" class="mobile-dd-chev w-4 h-4 transition-transform"></i>
+        </summary>
+        <div id="mobile-works-list" class="mt-2 mb-1 pl-3 border-l border-crimson/40 space-y-1 max-h-[50vh] overflow-y-auto"></div>
+      </details>
+      <a href="/campaigns" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Campaigns</a>
+      <a href="/method" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">Method &amp; Vision</a>
+      <a href="/about" class="mobile-nav-link block text-sm uppercase tracking-widest text-neutral-200 hover:text-crimson py-1">About &amp; Contact</a>
       <a href="https://wa.me/201159308831?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B4%D9%81%D8%AA%20%D8%B4%D8%BA%D9%84%D9%83%D9%85%20%D8%B9%D9%84%D9%89%20%D9%85%D9%88%D9%82%D8%B9%20Mohamed%20Samy%20Works%20%D9%88%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8.%0A%D9%86%D9%88%D8%B9%20%D8%A7%D9%84%D9%88%D8%AD%D8%AF%D8%A9%20%28%D8%B4%D9%82%D8%A9%20%2F%20%D9%81%D9%8A%D9%84%D8%A7%20%2F%20%D8%AA%D8%AC%D8%A7%D8%B1%D9%8A%29%3A%20%0A%D8%A7%D9%84%D9%85%D8%AF%D9%8A%D9%86%D8%A9%3A%20%0A%D8%A7%D9%84%D9%85%D8%B1%D8%AD%D9%84%D8%A9%20%D8%A7%D9%84%D8%AD%D8%A7%D9%84%D9%8A%D8%A9%20%28%D8%B7%D9%88%D8%A8%20%D8%A3%D8%AD%D9%85%D8%B1%20%2F%20%D9%86%D8%B5%20%D8%AA%D8%B4%D8%B7%D9%8A%D8%A8%20%2F%20%D8%AA%D8%AC%D8%AF%D9%8A%D8%AF%29%3A%20" target="_blank" rel="noopener noreferrer"
          class="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-full bg-crimson text-white text-xs font-semibold uppercase tracking-wider">
         <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
@@ -359,35 +382,12 @@
     </div>
   </header>
 
-  <!-- Right-Side Architectural Scroll Rail (Desktop) -->
-  <aside aria-label="Section scroll rail" class="hidden xl:flex fixed right-4 top-1/2 -translate-y-1/2 z-40 flex-col items-end gap-4">
-    <button type="button" data-target="#home" class="rail-btn group flex items-center gap-2.5">
-      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">01 Hero</span>
-      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35 active" data-dot="home"></span>
-    </button>
-    <button type="button" data-target="#vision" class="rail-btn group flex items-center gap-2.5">
-      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">02 Method</span>
-      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35" data-dot="vision"></span>
-    </button>
-    <button type="button" data-target="#works" class="rail-btn group flex items-center gap-2.5">
-      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">03 Works</span>
-      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35" data-dot="works"></span>
-    </button>
-    <button type="button" data-target="#campaigns" class="rail-btn group flex items-center gap-2.5">
-      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">04 Campaigns</span>
-      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35" data-dot="campaigns"></span>
-    </button>
-    <button type="button" data-target="#about" class="rail-btn group flex items-center gap-2.5">
-      <span class="opacity-0 group-hover:opacity-100 px-2 py-0.5 rounded bg-black/85 border border-white/10 text-[10px] tracking-[0.18em] uppercase text-white transition-opacity">05 About</span>
-      <span class="scroll-rail-dot w-2 h-2 rounded-full bg-white/35" data-dot="about"></span>
-    </button>
-  </aside>
 
   <!-- Main Foreground Content -->
   <main class="relative z-10">
 
     <!-- SECTION 1: HERO -->
-    <section id="home" class="min-h-screen flex items-center pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <section id="home" data-view="home" class="min-h-screen flex items-center pt-24 pb-16 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         <div class="lg:col-span-7 space-y-6">
           <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-panel text-[11px] tracking-[0.2em] uppercase text-neutral-300">
@@ -413,7 +413,7 @@
           </div>
 
           <div class="flex flex-wrap items-center gap-3.5 pt-1">
-            <a href="#works"
+            <a href="/works"
                class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-black text-xs font-bold tracking-[0.18em] uppercase hover:bg-crimson hover:text-white transition-all duration-300 shadow-lg">
               <span>Explore 11 Real Works</span>
               <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
@@ -423,7 +423,7 @@
               <i data-lucide="message-circle" class="w-4 h-4"></i>
               <span>Consult on WhatsApp</span>
             </a>
-            <a href="#campaigns"
+            <a href="/campaigns"
                class="inline-flex items-center gap-2 px-5 py-3.5 rounded-full glass-panel text-white text-xs font-semibold tracking-[0.16em] uppercase hover:border-crimson/70 transition-all duration-300">
               <i data-lucide="play" class="w-3.5 h-3.5 text-crimson"></i>
               <span>Campaigns</span>
@@ -488,8 +488,61 @@
       </div>
     </section>
 
+    <!-- HOME: short preview that opens the sub-pages -->
+    <section id="explore" data-view="home" class="pb-24 sm:pb-32 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto space-y-14">
+        <div>
+          <div class="flex items-end justify-between gap-4 mb-6">
+            <div>
+              <div class="text-xs font-semibold tracking-[0.28em] uppercase text-crimson mb-2">Latest Executed Works</div>
+              <h2 class="text-2xl sm:text-4xl font-extralight tracking-tight text-white">Newest <span class="font-semibold">Handovers</span></h2>
+            </div>
+            <a href="/works" class="hidden sm:inline-flex items-center gap-2 px-5 py-3 rounded-full glass-panel text-white text-xs font-semibold tracking-[0.14em] uppercase hover:border-crimson/70 transition-all">
+              <span>All 11 Projects</span><i data-lucide="arrow-right" class="w-3.5 h-3.5 text-crimson"></i>
+            </a>
+          </div>
+          <div id="home-latest" class="grid grid-cols-1 sm:grid-cols-3 gap-4"></div>
+          <a href="/works" class="sm:hidden mt-4 flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white text-black text-xs font-bold tracking-[0.16em] uppercase">
+            <span>All 11 Projects</span><i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a href="/campaigns" class="explore-tile group relative rounded-3xl overflow-hidden glass-card min-h-[15rem] flex items-end p-6">
+            <img id="explore-camp-img" src="" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-45 group-hover:opacity-60 group-hover:scale-105 transition-all duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+            <div class="relative space-y-2">
+              <div class="text-[11px] font-semibold uppercase tracking-[0.22em] text-crimson">Site Videos</div>
+              <div class="text-xl font-semibold text-white">Campaigns &amp; Tips</div>
+              <p id="explore-camp-text" class="text-xs text-neutral-300 leading-relaxed">Real videos from the Facebook page: site advice, reveals and handovers.</p>
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-white pt-1">Watch <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-crimson"></i></span>
+            </div>
+          </a>
+          <a href="/method" class="explore-tile group relative rounded-3xl overflow-hidden glass-panel min-h-[15rem] flex items-end p-6 border-crimson/20">
+            <div class="absolute top-0 left-0 w-1.5 h-full bg-crimson"></div>
+            <div class="relative space-y-2">
+              <div class="text-[11px] font-semibold uppercase tracking-[0.22em] text-crimson">Core-to-Key</div>
+              <div class="text-xl font-semibold text-white">The Finishing Method</div>
+              <p class="text-xs text-neutral-300 leading-relaxed">Foundation &amp; plastering first, on-site civil supervision, refined material craft, millimetre handover.</p>
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-white pt-1">Read the method <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-crimson"></i></span>
+            </div>
+          </a>
+          <a href="/about" class="explore-tile group relative rounded-3xl overflow-hidden glass-card min-h-[15rem] flex items-end p-6">
+            <img src="/assets/v2/sm/samy_home_hero.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-55 group-hover:scale-105 transition-all duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+            <div class="relative space-y-2">
+              <div class="text-[11px] font-semibold uppercase tracking-[0.22em] text-crimson">The Studio</div>
+              <div class="text-xl font-semibold text-white">About &amp; Contact</div>
+              <p class="text-xs text-neutral-300 leading-relaxed">Eng. Mohamed Samy, how we work step by step, press coverage and a direct WhatsApp consultation.</p>
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-white pt-1">Meet the studio <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-crimson"></i></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 2: BRAND PHILOSOPHY & ENGINEERING METHODOLOGY -->
-    <section id="vision" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="vision" data-view="method" class="hidden py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="glass-panel rounded-3xl p-8 sm:p-14 reveal-el relative overflow-hidden">
           <div class="absolute top-0 left-0 w-1.5 h-full bg-crimson"></div>
@@ -569,7 +622,7 @@
     </section>
 
     <!-- SECTION 3: WORKS PORTFOLIO (ALL 11 REAL PROJECTS FROM MOHAMEDSAMYWORKS.COM) -->
-    <section id="works" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="works" data-view="works" class="hidden py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 reveal-el">
           <div class="max-w-2xl">
@@ -599,8 +652,8 @@
                     class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider bg-surface border border-white/15 text-neutral-200 focus:outline-none focus:border-crimson cursor-pointer">
               <option value="all">All Cities (3)</option>
               <option value="Beni Suef">Beni Suef (6)</option>
-              <option value="Sheikh Zayed">Sheikh Zayed (2)</option>
-              <option value="Cairo">Cairo (2)</option>
+              <option value="Sheikh Zayed">Sheikh Zayed (1)</option>
+              <option value="Cairo">Cairo (3)</option>
             </select>
           </div>
         </div>
@@ -611,7 +664,7 @@
     </section>
 
     <!-- SECTION 4: CAMPAIGNS -->
-    <section id="campaigns" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="campaigns" data-view="campaigns" class="hidden py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 reveal-el">
           <div class="max-w-3xl">
@@ -654,7 +707,7 @@
     </section>
 
     <!-- SECTION 5: ABOUT, CLIENT JOURNEY, PRESS & DIRECT CONSULTATION -->
-    <section id="about" class="py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
+    <section id="about" data-view="about" class="hidden py-24 sm:py-32 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto space-y-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <!-- About Bio & Client Journey -->
@@ -784,13 +837,13 @@
                 </div>
                 <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/10">
                   <div class="text-sm font-semibold text-white">Sheikh Zayed</div>
-                  <div class="text-[10px] text-crimson font-semibold mt-0.5 uppercase tracking-wider">2 Projects</div>
-                  <div class="text-[10px] text-neutral-400 mt-0.5">Compounds</div>
+                  <div class="text-[10px] text-crimson font-semibold mt-0.5 uppercase tracking-wider">1 Project</div>
+                  <div class="text-[10px] text-neutral-400 mt-0.5">Pyramids Heights</div>
                 </div>
                 <div class="p-3.5 rounded-xl bg-white/[0.03] border border-white/10">
                   <div class="text-sm font-semibold text-white">Cairo</div>
-                  <div class="text-[10px] text-crimson font-semibold mt-0.5 uppercase tracking-wider">2 Projects</div>
-                  <div class="text-[10px] text-neutral-400 mt-0.5">Maadi · Mokattam</div>
+                  <div class="text-[10px] text-crimson font-semibold mt-0.5 uppercase tracking-wider">3 Projects</div>
+                  <div class="text-[10px] text-neutral-400 mt-0.5">Maadi · Mokattam · New Cairo</div>
                 </div>
               </div>
             </div>
@@ -838,6 +891,13 @@
             <span>WhatsApp</span>
           </a>
         </div>
+
+        <nav aria-label="Footer navigation" class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+          <a href="/works" class="hover:text-white transition-colors">Works</a>
+          <a href="/campaigns" class="hover:text-white transition-colors">Campaigns</a>
+          <a href="/method" class="hover:text-white transition-colors">Method</a>
+          <a href="/about" class="hover:text-white transition-colors">About &amp; Contact</a>
+        </nav>
 
         <div class="pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
           <div>© 2026 Mohamed Samy Works — All Rights Reserved</div>
@@ -1196,18 +1256,18 @@
           accent: '#C9A97E'
         },
         {
-          id: 'al-narges-zayed',
+          id: 'al-narges-new-cairo',
           num: '07',
           year: '2024',
           title: 'Al-Narges Compound',
           category: 'Residential',
-          city: 'Sheikh Zayed',
+          city: 'Cairo',
           style: 'Warm Minimalism',
           scope: 'Residential Interior Execution',
           highlights: ['Wood-Veneer Flush Doors', 'Globe Wall Sconces', 'Linear LED Corridor'],
           realPhotos: true,
-          shortDesc: 'Sheikh Zayed apartment defined by walnut-veneer doors, vertical slatted timber panels with globe sconces, linear recessed ceiling lighting, and backlit circular bath mirrors.',
-          overview: 'A residential interior project in Al-Narges Compound, Sheikh Zayed, crafted around crisp corridor perspectives, warm wood-veneer joinery, and clean porcelain & stone surfaces.',
+          shortDesc: 'New Cairo apartment defined by walnut-veneer doors, vertical slatted timber panels with globe sconces, linear recessed ceiling lighting, and backlit circular bath mirrors.',
+          overview: 'A residential interior project in Al-Narges, New Cairo, crafted around crisp corridor perspectives, warm wood-veneer joinery, and clean porcelain & stone surfaces.',
           concept: 'Warm minimalism guided by axis and light: an uninterrupted linear LED ceiling strip draws the eye down the hall alongside ribbed walnut panels and balanced globe sconces.',
           materials: 'Natural wood-veneer flush doors, vertical dark-walnut slat accents, matte-black globe wall sconces, recessed continuous ceiling LED channel, grey marble-veined bath porcelain, and circular backlit vanity mirrors.',
           challenge: 'Giving long circulation corridors and private rooms strong architectural character without crowding the floorplan.',
@@ -1825,14 +1885,21 @@
         modalWaLinkDrawer.href = waHref;
 
         setModalTab('overview');
+        if (!modal.classList.contains('hidden')) {} else modalReturnPath = location.pathname === '/works/' + proj.id ? '/works' : location.pathname + location.search;
+        try { history.replaceState(history.state, '', '/works/' + proj.id); } catch (e) {}
         modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         if (window.lucide) window.lucide.createIcons();
       }
 
+      let modalReturnPath = '/works';
       function closeProjectModal() {
         resetZoom(true);
+        const wasOpen = !modal.classList.contains('hidden');
         modal.classList.add('hidden');
+        if (wasOpen && location.pathname.startsWith('/works/')) {
+          try { history.replaceState(history.state, '', modalReturnPath); } catch (e) {}
+        }
         document.body.style.overflow = '';
       }
 
@@ -1932,21 +1999,14 @@
         window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
       }
 
-      document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-          const href = link.getAttribute('href');
-          if (href && href.length > 1) {
-            e.preventDefault();
-            scrollToSection(href);
-          }
-        });
-      });
 
       // Rail jump buttons
       document.querySelectorAll('.rail-btn').forEach(btn => {
         btn.addEventListener('click', () => scrollToSection(btn.dataset.target));
       });
 
+
+      let currentView = 'home';
 
       // Mobile quick-WhatsApp visibility: after the hero, not over the contact block, never over the gallery
       (function () {
@@ -1955,7 +2015,7 @@
         const contact = document.querySelector('#about');
         if (!fab) return;
         const update = () => {
-          const pastHero = window.scrollY > window.innerHeight * 0.9;
+          const pastHero = currentView === 'home' ? window.scrollY > window.innerHeight * 0.9 : window.scrollY > 160;
           const modalOpen = modal && !modal.classList.contains('hidden');
           const nearEnd = (window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 700;
           const show = pastHero && !modalOpen && !nearEnd;
@@ -1968,28 +2028,155 @@
         update();
       })();
 
-      // Support legacy social/post deep links like /works/after-8-cafe, /works, /about, /campaigns
-      function handleDeepLinkRoute() {
-        const path = window.location.pathname.replace(/\/+$/, '').toLowerCase();
-        const params = new URLSearchParams(window.location.search);
-        const queryProject = params.get('project');
-        if (queryProject && PROJECTS.some(p => p.id === queryProject)) {
-          openProjectModal(queryProject);
+      // ==========================================
+      // SUB-PAGE ROUTER: /, /works, /campaigns, /method, /about (Cloudflare _redirects serve this page for each)
+      // ==========================================
+      const SITE = 'https://www.mohamedsamyworks.com';
+      const metaDescEl = document.querySelector('meta[name="description"]');
+      const canonicalEl = document.querySelector('link[rel="canonical"]');
+      const VIEWS = {
+        home: { path: '/', title: document.title, desc: metaDescEl ? metaDescEl.content : '' },
+        works: { path: '/works', title: 'Executed Projects (11) — Mohamed Samy Works', desc: '11 executed residential and commercial projects by Mohamed Samy Works in Beni Suef, Cairo and Sheikh Zayed, documented with 169 real site photos. Newest first.' },
+        campaigns: { path: '/campaigns', title: 'Site Videos & Campaigns — Mohamed Samy Works', desc: 'Real site videos from the Mohamed Samy Works Facebook page: finishing advice, project reveals and raw-to-turnkey handovers.' },
+        method: { path: '/method', title: 'Core-to-Key Finishing Method — Mohamed Samy Works', desc: 'How Mohamed Samy Works finishes a unit: foundation and plastering first, on-site civil supervision, refined material craft and a millimetre-checked handover.' },
+        about: { path: '/about', title: 'About Eng. Mohamed Samy & Contact — Mohamed Samy Works', desc: 'Eng. Mohamed Samy, civil engineer and interior designer: the 4-step process, press coverage, regions served and a direct WhatsApp consultation.' }
+      };
+      const PROJECT_ALIASES = { 'al-narges-zayed': 'al-narges-new-cairo' };
+      const HASH_TO_PATH = { home: '/', works: '/works', campaigns: '/campaigns', vision: '/method', method: '/method', about: '/about', contact: '/about' };
+
+      function viewFromPath(pathname) {
+        const path = (pathname || '/').replace(/\/+$/, '').toLowerCase();
+        if (path === '' || path === '/index.html') return 'home';
+        if (path === '/works' || path.startsWith('/works/') || path === '/projects') return 'works';
+        if (path === '/campaigns') return 'campaigns';
+        if (path === '/method' || path === '/vision') return 'method';
+        if (path === '/about' || path === '/contact') return 'about';
+        return null;
+      }
+
+      function showView(view) {
+        currentView = view;
+        document.querySelectorAll('[data-view]').forEach(sec => sec.classList.toggle('hidden', sec.dataset.view !== view));
+        document.querySelectorAll('.nav-link[data-route]').forEach(a => a.classList.toggle('is-active', a.dataset.route === view && view !== 'home'));
+        const v = VIEWS[view];
+        document.title = v.title;
+        if (metaDescEl) metaDescEl.setAttribute('content', v.desc);
+        if (canonicalEl) canonicalEl.setAttribute('href', SITE + v.path);
+        window.scrollTo(0, 0);
+        updateScrollMetrics();
+        window.dispatchEvent(new Event('scroll'));
+      }
+
+      function projectFromPath(pathname) {
+        const path = pathname.replace(/\/+$/, '').toLowerCase();
+        if (!path.startsWith('/works/')) return null;
+        let slug = path.slice(7);
+        slug = PROJECT_ALIASES[slug] || slug;
+        return PROJECTS.some(p => p.id === slug) ? slug : null;
+      }
+
+      function closeMenus() {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        const dd = document.querySelector('.nav-dd');
+        if (dd) { dd.classList.add('is-closed'); setTimeout(() => dd.classList.remove('is-closed'), 400); }
+        if (document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      }
+
+      function routeTo(url, push) {
+        const view = viewFromPath(url.pathname) || 'home';
+        const slug = projectFromPath(url.pathname);
+        if (push) {
+          const target = (slug ? '/works' : VIEWS[view].path) + url.search;
+          if (target !== location.pathname + location.search) history.pushState({ view }, '', target);
+        }
+        if (!modal.classList.contains('hidden')) {
+          resetZoom(true); modal.classList.add('hidden'); document.body.style.overflow = '';
+        }
+        if (view !== currentView || push) showView(view);
+        if (slug) { modalReturnPath = '/works'; openProjectModal(slug); }
+        const qp = new URLSearchParams(url.search).get('project');
+        if (qp && PROJECTS.some(p => p.id === qp)) openProjectModal(qp);
+      }
+
+      document.addEventListener('click', (e) => {
+        const a = e.target.closest('a[href]');
+        if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        if (a.target === '_blank') return;
+        const href = a.getAttribute('href');
+        if (href.startsWith('#')) {
+          const p = HASH_TO_PATH[href.slice(1)];
+          if (!p) return;
+          e.preventDefault(); closeMenus(); routeTo(new URL(p, location.origin), true);
           return;
         }
-        if (path.startsWith('/works/')) {
-          const slug = path.replace('/works/', '');
-          if (PROJECTS.some(p => p.id === slug)) {
-            openProjectModal(slug);
-            return;
-          }
-          scrollToSection('#works');
+        if (!href.startsWith('/') || href.startsWith('//') || href.startsWith('/assets')) return;
+        const url = new URL(href, location.origin);
+        if (!viewFromPath(url.pathname)) return;
+        e.preventDefault();
+        closeMenus();
+        const slug = projectFromPath(url.pathname);
+        if (slug) {
+          modalReturnPath = location.pathname + location.search;
+          openProjectModal(slug);
           return;
         }
-        if (path === '/works' || path === '/projects') scrollToSection('#works');
-        else if (path === '/campaigns') scrollToSection('#campaigns');
-        else if (path === '/about' || path === '/contact') scrollToSection('#about');
-        else if (path === '/vision' || path === '/method') scrollToSection('#vision');
+        routeTo(url, true);
+      });
+
+      window.addEventListener('popstate', () => routeTo(new URL(location.href), false));
+
+      function renderNavWorks() {
+        const item = (p) => `
+          <a href="/works/${p.id}" class="flex items-center gap-3 px-2 py-1.5 rounded-xl hover:bg-white/[0.06] transition-colors">
+            <img src="${sm(p.image)}" alt="" loading="lazy" decoding="async" class="w-12 h-9 rounded-md object-cover shrink-0 bg-black" />
+            <span class="min-w-0">
+              <span class="block text-[13px] text-white font-medium truncate">${p.title}</span>
+              <span class="block text-[10px] text-neutral-400 uppercase tracking-wider">${p.category} · ${p.city} · ${p.year}</span>
+            </span>
+          </a>`;
+        const desk = document.getElementById('nav-works-list');
+        if (desk) desk.innerHTML = PROJECTS.map(item).join('');
+        const mob = document.getElementById('mobile-works-list');
+        if (mob) mob.innerHTML = `<a href="/works" class="block py-1.5 text-xs font-semibold uppercase tracking-wider text-crimson">All 11 Projects</a>` +
+          PROJECTS.map(p => `<a href="/works/${p.id}" class="block py-1.5 text-sm text-neutral-200 hover:text-white">${p.title} <span class="text-[10px] text-neutral-500">· ${p.city} · ${p.year}</span></a>`).join('');
+      }
+
+      function renderHomePreview() {
+        const wrap = document.getElementById('home-latest');
+        if (wrap) wrap.innerHTML = PROJECTS.slice(0, 3).map(p => `
+          <a href="/works/${p.id}" class="glass-card rounded-2xl overflow-hidden group block">
+            <div class="relative aspect-[4/3] overflow-hidden bg-charcoal">
+              <img src="${sm(p.image)}" alt="${p.title} — ${p.category} project in ${p.city} by Mohamed Samy Works" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent"></div>
+              <span class="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-black/80 border border-white/15 text-white">${p.gallery.length} Photos</span>
+              <div class="absolute bottom-3 left-4 right-4">
+                <div class="text-[10px] uppercase tracking-[0.18em] text-crimson font-semibold">${p.category} · ${p.city} · ${p.year}</div>
+                <div class="text-base font-semibold text-white mt-0.5">${p.title}</div>
+              </div>
+            </div>
+          </a>`).join('');
+        const c = CAMPAIGNS[0];
+        const img = document.getElementById('explore-camp-img');
+        if (c && img) img.src = c.thumb;
+        const txt = document.getElementById('explore-camp-text');
+        if (txt) txt.textContent = `${CAMPAIGNS.length} real videos from the Facebook page: site advice, project reveals and raw-to-turnkey handovers.`;
+      }
+
+      function initRoute() {
+        // old one-page links like /#works keep working
+        const h = location.hash.slice(1);
+        if (h && HASH_TO_PATH[h]) {
+          history.replaceState(null, '', HASH_TO_PATH[h]);
+        }
+        const url = new URL(location.href);
+        const slug = projectFromPath(url.pathname);
+        const view = viewFromPath(url.pathname) || 'home';
+        if (slug && url.pathname !== '/works/' + slug) history.replaceState(null, '', '/works/' + slug);
+        showView(view);
+        if (slug) { modalReturnPath = '/works'; openProjectModal(slug); }
+        const qp = url.searchParams.get('project');
+        if (qp && PROJECTS.some(p => p.id === qp)) openProjectModal(qp);
       }
 
       // Scroll Reveal Observer (responsive threshold so tall mobile cards reveal reliably)
@@ -2181,9 +2368,10 @@
           crimsonRim.intensity = 2.6 + Math.sin(t * 1.4) * 0.35;
 
           const totalSegs = STAGES.length - 1;
-          const scaled = smoothScrollProgress * totalSegs;
-          const idx = Math.min(totalSegs - 1, Math.floor(scaled));
-          const frac = scaled - idx;
+          const vIdx = Math.max(0, STAGES.findIndex(st => st.id === (currentView === 'method' ? 'vision' : currentView)));
+          let idx, frac;
+          if (vIdx < totalSegs) { idx = vIdx; frac = smoothScrollProgress; }
+          else { idx = totalSegs - 1; frac = 1 - smoothScrollProgress * 0.6; }
           const ease = frac * frac * (3 - 2 * frac);
 
           const sA = STAGES[idx];
@@ -2212,10 +2400,12 @@
       // Boot
       renderProjects();
       renderCampaigns();
+      renderNavWorks();
+      renderHomePreview();
       updateScrollMetrics();
       initThreeScene();
       if (window.lucide) window.lucide.createIcons();
-      handleDeepLinkRoute();
+      initRoute();
     })();
   </script>
 </body>

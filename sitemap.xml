@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.mohamedsamyworks.com/</loc>
-    <lastmod>2026-11-27</lastmod>
+    <lastmod>2026-11-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -43,11 +43,35 @@
     </image:image>
     <image:image>
       <image:loc>https://www.mohamedsamyworks.com/assets/v2/p_narges_06.webp</image:loc>
-      <image:title>Al-Narges Compound — Sheikh Zayed — Mohamed Samy Works</image:title>
+      <image:title>Al-Narges Compound — New Cairo — Mohamed Samy Works</image:title>
     </image:image>
     <image:image>
       <image:loc>https://www.mohamedsamyworks.com/assets/v2/p_kornish_10.webp</image:loc>
       <image:title>Kornish Beni Suef — Beni Suef — Mohamed Samy Works</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://www.mohamedsamyworks.com/works</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.mohamedsamyworks.com/campaigns</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.mohamedsamyworks.com/method</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.mohamedsamyworks.com/about</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
